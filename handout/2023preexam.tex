@@ -1,0 +1,207 @@
+\documentclass{ltjsarticle}
+\RequirePackage{amsmath,amssymb,amsthm, amscd, comment, multicol, ascmac}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{xurl}
+\hypersetup{unicode,bookmarksnumbered=true,hidelinks,final}
+\usepackage[top=10truemm,bottom=20truemm,left=25truemm,right=25truemm]{geometry}
+\newtheorem{prob}{問題}
+\newtheorem{ans}{解答}
+
+\title{期末試験向け練習問題}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-13mm}
+
+\begin{prob}
+    複素数$z$を実数$x, y$を用いて$z=x+yi$と表し、
+    複素数値関数$f(z)$の実部を$u$、虚部を$v$とし$f(z)=u(x,y)+iv(x,y)$と表す。
+    \begin{enumerate}
+        \item この$f$についてコーシーリーマンの方程式を書け。
+        \item 以下の関数$f$が正則であるかどうかを答えよ。
+        \begin{multicols}{2}
+            \begin{enumerate}
+                \item $f(z)=x^2-y^2+2xyi$
+                \item $f(z)=x^2-y^2-2xyi$
+            \end{enumerate}            
+        \end{multicols}
+    \end{enumerate}
+\end{prob}
+
+\begin{prob}
+    次の線積分の値を求めよ。
+    ただし$C(z,r)$で反時計回りの中心$z$半径$r$の円周を表す。
+    \begin{multicols}{3}
+        \begin{enumerate}
+            \item $$\int_{C(0,1)}\frac{z}{z+2}dz$$
+            \item $$\int_{C(1,1)}\frac{1}{z^2-1}dz$$
+            \item $$\int_{C(0,1)}\frac{\sin z}{z^2}dz$$
+        \end{enumerate}
+    \end{multicols}
+\end{prob}
+
+\begin{prob}
+    次の$z=0$を中心とする冪級数の収束半径を求めよ。
+    \begin{multicols}{3}
+        \begin{enumerate}
+            \item $$\sum_{n=1}^\infty\frac{1}{n}z^n$$
+            \item $$\sum_{n=0}^\infty\frac{1}{n!}z^n$$
+            \item $$\sum_{n=1}^\infty\frac{1}{2^n}z^{2n}$$
+        \end{enumerate}
+    \end{multicols}
+\end{prob}
+
+\begin{prob}
+    次の関数$f$の$z=0$を中心とするローラン展開を$3$次以下まで求めよ。
+    \begin{multicols}{2}
+        \begin{enumerate}
+            \item $f(z)=\dfrac{1}{z-2}$
+            \item $f(z)=\dfrac{e^z}{z^2}$
+        \end{enumerate}
+    \end{multicols}
+\end{prob}
+
+\begin{prob}
+    次の関数$f$は$\mathbb{C}$の有理型関数である。
+    この関数の極とその位数および留数を全て求めよ。
+    \begin{multicols}{2}
+        \begin{enumerate}
+            \item $f(z)=\dfrac{1}{z(z+1)}$
+            \item $f(z)=\dfrac{e^z-1}{z^2(z-1)^2}$
+        \end{enumerate}
+    \end{multicols}
+\end{prob}
+
+\begin{prob}
+    以下の積分値を留数定理を用いて求めよ。
+    ただし、積分経路の取り方、留数定理をどう使うか、収束についての議論などを必要に応じて説明せよ。
+    \begin{multicols}{2}
+        \begin{enumerate}
+            \item $\displaystyle\int^{2\pi}_0\frac{1}{5+4\cos\theta}d\theta$
+            \item $\displaystyle\int^\infty_{-\infty}\frac{1}{x^4+1}dx$
+        \end{enumerate}
+    \end{multicols}
+\end{prob}
+
+\newpage
+\begin{ans}
+    \begin{enumerate}
+        \item 
+        \begin{align*}
+            \begin{cases}
+                \dfrac{\partial u}{\partial x}=\dfrac{\partial v}{\partial y}\\
+                \dfrac{\partial u}{\partial y}=-\dfrac{\partial v}{\partial x}
+            \end{cases}
+        \end{align*}
+        \item 
+        \begin{enumerate}
+            \item 実部虚部ともに$x, y$の多項式なので全微分可能である。
+            また、$\dfrac{\partial u}{\partial x}=2x=\dfrac{\partial v}{\partial y},
+            \dfrac{\partial u}{\partial y}=-2y=-\dfrac{\partial v}{\partial y}$なので、コーシーリーマン方程式を満たす。
+            よって$f$は正則関数である。
+            \item $\dfrac{\partial u}{\partial x}=2x\neq\dfrac{\partial v}{\partial y},
+            \dfrac{\partial u}{\partial y}=-2y\neq-\dfrac{\partial v}{\partial y}$なので、コーシーリーマン方程式を満たさない。
+            よって$f$は正則関数でない。
+        \end{enumerate}
+    \end{enumerate}
+\end{ans}
+
+\begin{ans}
+    \begin{enumerate}
+        \item $\dfrac{z}{z+2}$は$C(0,1)$上および内部で正則である。よって、コーシーの積分定理により、積分値は$0$である。
+        \item $f(z)=\dfrac{1}{z+1}$とすると、これは$C(1,1)$上および内部で正則なので、コーシーの積分公式により、
+            \begin{align*}
+                \int_{C(1,1)}\frac{1}{z^2-1}dz&=\int_{C(1,1)}\frac{1}{z-1}f(z)dz\\
+                &=(2\pi i)f(1)=\pi i
+            \end{align*}
+            である。
+        \item $f(z)=\sin z$とすると、これは$C(0,1)$上および内部で正則なので、導関数を積分で表す公式により
+            \begin{align*}
+                \int_{C(0,1)}\frac{\sin z}{z^2}dz&=\int_{C(0,1)}\frac{f(z)}{z^2}dz\\
+                &=2\pi if'(0)=2\pi i
+            \end{align*}
+            である。
+    \end{enumerate}
+\end{ans}
+
+\begin{ans}
+    \begin{enumerate}
+        \item \begin{align*}\lim_{n\to\infty}\frac{1/(n+1)}{1/n}=1\end{align*}であるので、収束半径は$1$である。
+        \item \begin{align*}\lim_{n\to\infty}\frac{1/(n+1)!}{1/n!}=0\end{align*}であるので、収束半径は無限大である。
+        \item \begin{align*}a_n=\begin{cases}\dfrac{1}{\sqrt{2}^n}&n\mbox{が偶数}\\0&n\mbox{が奇数}\end{cases}\end{align*}とおくと、
+            $\displaystyle\varlimsup_{n\to\infty}\sqrt[n]{\lvert a_n\rvert}=\dfrac{1}{\sqrt{2}}$なので、収束半径は$\sqrt{2}$である。
+    \end{enumerate}
+\end{ans}
+
+\begin{ans}
+    \begin{enumerate}
+        \item 
+            \begin{align*}
+                \frac{1}{z-2}&=-\frac{1}{2}\frac{1}{1-(z/2)}\\
+                &=-\frac{1}{2}(1+\frac{z}{2}+\frac{z^2}{4}+\frac{z^3}{8}+\cdots)\\
+                &=-\frac{1}{2}-\frac{1}{4}z-\frac{1}{8}z^2-\frac{1}{16}z^3+\cdots
+            \end{align*}
+        \item
+            \begin{align*}
+                \frac{e^z}{z^2}&=\frac{1}{z^2}(1+z+\frac{1}{2}z^2+\frac{1}{6}z^3+\frac{1}{24}z^4+\frac{1}{120}z^5+\cdots)\\
+                &=z^{-2}+z^{-1}+\frac{1}{2}+\frac{1}{6}z+\frac{1}{24}z^2+\frac{1}{120}z^3
+            \end{align*}
+    \end{enumerate}
+\end{ans}
+
+\begin{ans}
+    いずれも正則関数の比なので、分母が$0$となる点が極の候補。
+    ただし、分子が$0$になるかどうかに注意する。
+    \begin{enumerate}
+        \item $z=0$で$1$位の極をもち、留数は$\displaystyle\lim_{z\to0}zf(z)=1$である。
+        また、$z=-1$で$1$位の極をもち、留数は$\displaystyle\lim_{z\to-1}(z+1)f(z)=-1$である。
+        \item 分子は$z=0$での$0$となり、$z=0$の周りでテイラー展開すると$z+\dfrac{1}{2}z^2+\cdots$となるので、
+        $f(z)$は$z=0$で$1$位の極をもち、留数は$\displaystyle\lim_{z\to0}zf(z)=1$である。
+        また、$z=1$で$2$位の極をもち、$\displaystyle\lim_{z\to1}((z-1)^2f(z))'=2-e$である。
+    \end{enumerate}
+\end{ans}
+
+\begin{ans}
+    \begin{enumerate}
+        \item $z=e^{i\theta}$とすると、$\cos\theta=\dfrac{z+z^{-1}}{2}, d\theta=\dfrac{dz}{iz}$であり、
+        $\theta$についての積分区間が単位円$C(0,1)$での線積分になるため、
+        \begin{align*}
+            \displaystyle\int^{2\pi}_0\frac{1}{5+4\cos\theta}d\theta
+            &=\int_{C(0,1)}\frac{1}{5+2(z+z^{-1})}\frac{dz}{iz}\\
+            &=\frac{1}{i}\int_{C(0,1)}\frac{1}{2z^2+5z+2}dz\\
+            &=\frac{1}{i}\int_{C(0,1)}\frac{1}{(2z+1)(z+2)}dz\\
+            &=\frac{1}{i}(2\pi i)\mathrm{Res}_{z=-1/2}(\frac{1}{(2z+1)(z+2)})=\frac{4\pi}{3}
+        \end{align*}
+        \item 正の数$R>1$に対して、積分経路を原点中心で半径$R$の上半円を反時計回りに向きをつけたもの$C_R$と実軸の$-R$から$R$へ向かう線分$I_R$をつなげたものとする。
+        これに対して、留数定理を用いると
+        \begin{align*}
+            \int_{C_R+I_R}\dfrac{1}{z^4+1}dz&=2\pi i\left(\mathrm{Res}_{z=e^{\pi i/4}}\dfrac{1}{z^4+1}+\mathrm{Res}_{z=e^{3\pi i/4}}\dfrac{1}{z^4+1}\right)\\
+            &=2\pi i(\frac{1}{4e^{\pi i/4}}+\frac{1}{4e^{3\pi i/4}})=\frac{\pi}{\sqrt{2}}
+        \end{align*}
+        となる。
+        一方で、$R\to\infty$での極限は、
+        \begin{align*}
+            \lim_{R\to\infty}\int_{I_R}\frac{1}{z^4+1}dz=\int_{-\infty}^{\infty}\frac{1}{x^4+1}dx
+        \end{align*}
+        であり、
+        \begin{align*}
+            \left\lvert\int_{C_R}\frac{1}{z^4+1}dz\right\rvert
+            &\leq\int_0^\pi\left\lvert\frac{1}{R^4e^{4i\theta}+1}Rie^{i\theta}\right\rvert d\theta\\
+            &\leq\frac{R}{R^4-1}\pi
+        \end{align*}
+        となるので、
+        \begin{align*}
+            \lim_{R\to\infty}\int_{C_R}\frac{1}{z^4+1}dz=0
+        \end{align*}
+        である。
+        よって、
+        \begin{align*}
+            \int_{-\infty}^\infty\frac{1}{x^4+1}dx=\frac{\pi}{\sqrt{2}}
+        \end{align*}
+    \end{enumerate}
+\end{ans}
+\end{document}

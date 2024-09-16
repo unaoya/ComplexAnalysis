@@ -239,63 +239,76 @@ $$
 $$
 とする。
 
-まず、\\(4\\)つの合同な長方形に分割し、それらを\\(R^1, R^2, R^3, R^4\\)と仮に名付ける。
+一般の長方形$S$に対して一次式の積分を直接計算すると
+$$
+  \int_{\partial S}dz=0\\\\
+  \int_{\partial S}zdz=0
+$$
+となる。
+
+これにより、任意の長方形$S$に対して
+$$
+  \eta(S)=\int_{\partial S}f(z)dz
+  =\int_{\partial S}(f(z)-f(z_\ast)-(z-z_\ast)f\'(z_\ast))dz
+$$
+が成り立つ。
+
+まず、$R$を\\(4\\)つの合同な長方形に分割し、それらを\\(R^1, R^2, R^3, R^4\\)と仮に名付ける。
 すると、
 $$
   \eta(R)=\eta(R^1)+\eta(R^2)+\eta(R^3)+\eta(R^4)
 $$
 である。
-すると、\\(R^1\\)から\\(R^4\\)のうちの少なくとも一つは
+よって、\\(R^1\\)から\\(R^4\\)のうちの少なくとも一つは
 $$
-  \lvert\eta(R^i)\rvert\geq\lvert\eta(R)\rvert
+  \lvert\eta(R^i)\rvert\geq\frac{1}{4}\lvert\eta(R)\rvert
 $$
 を満たす。
 これを\\(R_1\\)と書くことにしよう。
 
-これを同様に繰り返すことで\\(R_n\\)を定義する。
+これを同様に繰り返すことで長方形の列\\(R_n\\)を定義する。
 つまり、
 $$
   \lvert\eta(R_n)\rvert\geq\frac{1}{4}\lvert\eta(R_{n-1})\rvert
 $$
 が成立するように長方形をどんどん小さくとっていく。
 
-すると
+すると、任意の$n$に対して
 $$
   \lvert \eta(R_n) \rvert\geq\frac{1}{4^n}\lvert \eta(R) \rvert
 $$
 が成り立つ。
 
-この長方形はある点\\(z_\ast\\)に収束する。
+この長方形の列$R_1, R_2,\ldots$はある点\\(z_\ast\\)に収束する。
+区間縮小法。
 正確にいうと、任意の\\(\delta\\)に対して十分大きな\\(n\\)について\\(R_n\\)は\\(\lvert z-z_\ast \rvert&lt;\delta\\)に含まれる。
-このとき、\\(f\\)が\\(z_\ast\\)で正則であるから、微分係数の定義から、
+
+\\(f\\)が\\(z_\ast\\)で正則であるから、微分係数の定義から、
 任意の\\(\epsilon>0\\)に対し、\\(\delta\\)を適当に取ることで、\\(0&lt;\lvert z-z_\ast \rvert&lt;\delta\\)に対し
 $$
   \lvert f(z)-f(z_\ast)-(z-z_\ast)f\'(z_\ast) \rvert&lt;\epsilon\lvert z-z_\ast \rvert
 $$
 が成り立つようにできる。
 
-長方形の場合に一次式の積分を直接計算すると
+特に、$\delta$に対して定まる十分大きな$n$に対して、任意の$z\in R_n$に対して、
 $$
-  \int_{\partial R_n}dz=0\\\\
-  \int_{\partial R_n}zdz=0
-$$
-となる。
-
-これにより、
-$$
-  \eta(R_n)=\int_{\partial R_n}f(z)dz
-  =\int_{\partial R_n}(f(z)-f(z_\ast)-(z-z_\ast)f\'(z_\ast))dz
+  \lvert f(z)-f(z_\ast)-(z-z_\ast)f\'(z_\ast) \rvert&lt;\epsilon\lvert z-z_\ast \rvert
 $$
 が成り立つ。
-上の不等式により
+
+$\epsilon>0$とする。
+上のように、$R_n$に対して$f$の値の不等式が成り立つように$n$をとる。
+すると、
 $$
-  \lvert \eta(R_n) \rvert\leq\epsilon\int_{\partial R_n}\lvert z-z_\ast \rvert\lvert dz \rvert
+  \lvert \eta(R_n) \rvert＝\left\lvert\int_{\partial R_n}(f(z)-f(z_\ast)-(z-z_\ast)f\'(z_\ast))dz\right\rvert\\\\
+  \leq\int_{\partial R_n}\lvert(f(z)-f(z_\ast)-(z-z_\ast)f\'(z_\ast))\rvert \lvert dz\rvert\\\\
+  \leq\epsilon\int_{\partial R_n}\lvert z-z_\ast \rvert\lvert dz \rvert
 $$
 となる。
 
 ここで\\(\lvert z-z_\ast \rvert\\)は\\(R_n\\)の対角線の長さ\\(d_n\\)より小さく、また\\(R_n\\)の周の長さを\\(L_n\\)とすると、
 $$
-  \epsilon\int_{\partial R_n}\lvert z-z_\ast \rvert\lvert dz \rvert\leq d_nL_n
+  \epsilon\int_{\partial R_n}\lvert z-z_\ast \rvert\lvert dz \rvert\leq \epsilon d_nL_n
 $$
 となる。
 

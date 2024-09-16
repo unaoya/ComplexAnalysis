@@ -1,0 +1,113 @@
+\documentclass{ltjsarticle}
+\RequirePackage{amsmath,amssymb,amsthm, amscd, comment, multicol, ascmac}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{xurl}
+\hypersetup{unicode,bookmarksnumbered=true,hidelinks,final}
+\usepackage[top=10truemm,bottom=20truemm,left=25truemm,right=25truemm]{geometry}
+\newtheorem{prob}{問題}
+\newtheorem*{ans*}{解答}
+
+\title{2023年度複素解析I期末試験（担当:梅崎直也）}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-13mm}
+\textbf{問題1から問題5}は答えのみでよい。答えが正しくない場合には導く過程についての記述を加点対象とする。
+\textbf{問題6と問題7}は答えを導く過程についても記述せよ。答えが正しくともその記述が不十分であれば減点する可能性がある。
+
+\begin{prob}
+    複素数$z$を実数$x, y$を用いて$z=x+yi$と表し、
+    複素数値関数$f(z)$の実部を$u$、虚部を$v$とし$f(z)=u(x,y)+iv(x,y)$と表す。
+    \begin{enumerate}
+        \item この$f$についてコーシーリーマンの方程式を書け。
+        \item 以下の関数$f$が正則であるかどうかを答えよ。
+        \begin{multicols}{2}
+            \begin{enumerate}
+                \item $f(z)=x^3-3xy^2+3x^2yi-y^3i$
+                \item $f(z)=x^3-3xy^2-3x^2yi+y^3i$
+            \end{enumerate}            
+        \end{multicols}    
+
+    \end{enumerate}
+\end{prob}
+
+\begin{prob}
+    次の線積分の値を求めよ。
+    ただし$C(z,r)$で反時計回りの中心$z$半径$r$の円周を表す。
+    \begin{multicols}{3}
+        \begin{enumerate}
+            \item $$\int_{C(0,1)}\frac{z}{z^2+3}dz$$
+            \item $$\int_{C(1,1)}\frac{1}{2z^2-1}dz$$
+            \item $$\int_{C(0,1)}\frac{e^z-1}{z^2}dz$$
+        \end{enumerate}
+    \end{multicols}
+    % 複素線積分の計算
+    % - コーシーの積分定理を使えるやつ
+    % - コーシーの積分公式を使えるやつ
+    % - どれも使えないやつ
+\end{prob}
+
+\begin{prob}
+    次の$z=0$を中心とする冪級数の収束半径を求めよ。
+    \begin{multicols}{3}
+        \begin{enumerate}
+            \item $$\sum_{n=1}^\infty\frac{1}{n^2}z^n$$
+            \item $$\sum_{n=0}^\infty\frac{1}{n!}z^n$$
+            \item $$\sum_{n=1}^\infty\frac{1}{2^n}z^{3n}$$
+        \end{enumerate}
+    \end{multicols}
+\end{prob}
+
+\begin{prob}
+    次の関数$f$の$z=0$を中心とするローラン展開を$3$次以下まで求めよ。
+    \begin{multicols}{2}
+        \begin{enumerate}
+            \item $f(z)=\dfrac{1}{z+2}$
+            \item $f(z)=\dfrac{\sin z}{z^2}$
+        \end{enumerate}
+    \end{multicols}
+\end{prob}
+
+\begin{prob}
+    次の関数$f$は$\mathbb{C}$の有理型関数である。
+    この関数の極とその位数および留数を全て求めよ。
+    \begin{multicols}{2}
+        \begin{enumerate}
+            \item $f(z)=\dfrac{1}{z(z-1)}$
+            \item $f(z)=\dfrac{\sin\pi z}{z(z-1)^2(z-2)^3}$
+        \end{enumerate}
+    \end{multicols}
+\end{prob}
+
+
+\begin{prob}
+    以下の積分値を留数定理を用いて求めよ。
+    ただし、積分経路の取り方、留数定理をどう使うか、収束についての議論などを必要に応じて説明せよ。
+    \begin{multicols}{2}
+        \begin{enumerate}
+            \item $\displaystyle\int^{2\pi}_0\frac{1+\sin\theta}{3+\cos\theta}d\theta$
+            \item $\displaystyle\int^\infty_{-\infty}\frac{1}{x^6+1}dx$
+        \end{enumerate}
+    \end{multicols}
+\end{prob}
+
+\begin{prob}[余裕のある人向け]
+    複素数$z$に対して定まる$2$つの関数
+    \begin{align*}
+        f(z)&=\dfrac{\pi}{\tan\pi z}\\
+        g(z)&=\displaystyle\lim_{N\to\infty}\sum_{n=-N}^N\frac{1}{z+n}
+    \end{align*}
+    について考える。
+    \begin{enumerate}
+        \item $f(z), g(z)$は周期を$1$とする周期関数である、つまり$z$での値と$z+1$での値が一致することを示せ。
+        \item $f(z), g(z)$がいずれも整数$n$に対する$z=n$において$1$位の極をもち、それ以外に特異点を持たないことを示せ。
+        \item $f(z), g(z)$の$z=0$における主要部が$\dfrac{1}{z}$であることを示せ。
+        \item $f(z)=g(z)$であることを示せ。
+    \end{enumerate}
+\end{prob}
+
+\end{document}
