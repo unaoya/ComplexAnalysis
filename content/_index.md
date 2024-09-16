@@ -1,7 +1,6 @@
 +++
 title = 'はじめに'
 date = 2024-09-11T12:29:09+09:00
-draft = true
 katex = true
 +++
 
