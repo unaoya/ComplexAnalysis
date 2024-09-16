@@ -44,8 +44,8 @@ weight: 1
 
 ## 一次関数
 
-二つの複素数$\alpha, \beta\in\mathbb{C}$を用いて一次関数を定義できる。
-$a\in\mathbb{C}$に対して、\\(f(z)=\alpha z+\beta\\)とすることで$f:\mathbb{C}\to\mathbb{C}$が定まる。
+二つの複素数\\(\alpha, \beta\in\mathbb{C}\\)を用いて一次関数を定義できる。
+\\(a\in\mathbb{C}\\)に対して、\\(f(z)=\alpha z+\beta\\)とすることで\\(f:\mathbb{C}\to\mathbb{C}\\)が定まる。
 
 \\(\alpha\\)倍は複素数の回転拡大、\\(+\beta\\)で平行移動を表す。
 図示する。
@@ -61,7 +61,7 @@ $a\in\mathbb{C}$に対して、\\(f(z)=\alpha z+\beta\\)とすることで$f:\ma
 
 集合として、また連続性についてはどちらでも同じ。
 
-一次関数$f(z)=\alpha z+\beta$は、$\alpha=a+bi, \beta=c+di$とおくと、
+一次関数\\(f(z)=\alpha z+\beta\\)は、\\(\alpha=a+bi, \beta=c+di\\)とおくと、
 $$
 \alpha z+\beta=(a+bi)(x+yi)+(c+di)=(ax-by+c)+(ay+bx+d)i
 $$
@@ -112,12 +112,12 @@ a/\sqrt{a^2+b^2}&-b/\sqrt{a^2+b^2}\\\\
 b/\sqrt{a^2+b^2}&a/\sqrt{a^2+b^2}
 \end{pmatrix}
 $
-は行列式が$1$の直交行列である。
+は行列式が\\(1\\)の直交行列である。
 
 ## 多項式函数
 
-複素数係数の\\(z\\)の多項式\\(f(z)=z^n+\cdots+a_n\\)は、$a\in\mathbb{C}$に対して$f(z)$を対応させることで、
-関数$f:\mathbb{C}\to\mathbb{C}$を定める。
+複素数係数の\\(z\\)の多項式\\(f(z)=z^n+\cdots+a_n\\)は、\\(a\in\mathbb{C}\\)に対して\\(f(z)\\)を対応させることで、
+関数\\(f:\mathbb{C}\to\mathbb{C}\\)を定める。
 
 ## 複素関数の連続性
 複素関数の連続性は、単に二変数関数\\(f(x,y)\\)の連続性と同じ。
@@ -152,7 +152,7 @@ $$
 $$
 \sum_{n=0}^\infty a_nz^n=a_0+a_1z+a_2z^2+\cdots
 $$
-は、これが収束する$z\in\mathbb{C}$に対して、関数を定義する。
+は、これが収束する\\(z\in\mathbb{C}\\)に対して、関数を定義する。
 
 ## 指数関数
 
@@ -166,12 +166,12 @@ $$
 
 ### 冪級数
 
-実数の範囲で、指数関数$e^x$のテイラー展開が
+実数の範囲で、指数関数\\(e^x\\)のテイラー展開が
 $$
 \sum_{n=0}^\infty\frac{1}{n!}x^n
 $$
 であることを利用する。
-この冪級数は全ての複素数で収束するため、関数$f:\mathbb{C}\to\mathbb{C}$を定義する。
+この冪級数は全ての複素数で収束するため、関数\\(f:\mathbb{C}\to\mathbb{C}\\)を定義する。
 
 周期性？
 
