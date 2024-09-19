@@ -106,12 +106,12 @@ b/\sqrt{a^2+b^2}&a/\sqrt{a^2+b^2}
 \end{pmatrix}
 $$
 であり、
-$
+$$
 \begin{pmatrix}
 a/\sqrt{a^2+b^2}&-b/\sqrt{a^2+b^2}\\\\
 b/\sqrt{a^2+b^2}&a/\sqrt{a^2+b^2}
 \end{pmatrix}
-$
+$$
 は行列式が\\(1\\)の直交行列である。
 
 ## 多項式函数
