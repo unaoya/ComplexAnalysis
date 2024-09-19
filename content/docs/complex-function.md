@@ -9,33 +9,6 @@ weight: 1
 # bookSearchExclude: false
 ---
 
-{{< hint info >}}
-ヒント．
-{{< /hint >}}
-
-{{< hint danger >}}
-ヒント．
-{{< /hint >}}
-
-{{< katex >}}\int_{-\infty}^{\infty}e^{-t^2}dt=0{{< /katex >}}
-
-{{< katex display >}}
-  \int_{-\infty}^{\infty}e^{-t^2}dt=0
-{{< /katex >}}
-
-{{< hint info >}}
-
-以下の式が成り立つ．
-
-{{< katex display >}}
-  \int_{-\infty}^{\infty}e^{-t^2}dt=\pi.
-{{< /katex >}}
-{{< /hint >}}
-
-{{< hint info >}}
-次の式が成り立つ．\\(\int_{-\infty}^{\infty}e^{-t^2}dt=0\\).
-{{< /hint >}}
-
 # 複素関数
 
 ここでは複素関数について説明する。
