@@ -3,3 +3,7 @@ languageCode = 'ja-jp'
 title = '複素解析入門'
 theme = "hugo-book"
 publishDir = "public"
+
+[params]
+  BookTheme = 'auto'
+  BookSearch = false

@@ -1,6 +1,6 @@
 ---
-title: "Louville Theorem"
-weight: 1
+title: "リュービルの定理"
+weight: 11
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false

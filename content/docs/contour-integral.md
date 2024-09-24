@@ -1,6 +1,6 @@
 ---
-title: "Contour Integral"
-weight: 1
+title: "線積分"
+weight: 4
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false
@@ -11,11 +11,13 @@ weight: 1
 
 # 複素線積分
 
-{{< katex >}}{{< /katex >}}
-
 ここでは複素関数の**線積分**について解説する。
-複素平面の部分集合\\(U\subset \mathbb{C}\\)上定義された複素関数\\(f:U\to \mathbb{C}\\)と\\(U\\)内の曲線\\(\gamma:[a,b]\to U\\)に対し、
-線積分\\(\int_Cf(z)dz\\)を定義することができる。
+複素平面の部分集合{{< katex >}}U\subset \mathbb{C}{{< /katex >}}上定義された複素関数\\(f:U\to \mathbb{C}\\)と\\(U\\)内の滑らかな曲線\\(C\\)に対し、
+線積分
+$$
+\int_Cf(z)dz
+$$
+を定義することができる。
 
 ## 線積分の定義
 

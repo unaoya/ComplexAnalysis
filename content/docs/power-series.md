@@ -1,6 +1,6 @@
 ---
-title: "Power Series"
-weight: 1
+title: "冪級数"
+weight: 7
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false

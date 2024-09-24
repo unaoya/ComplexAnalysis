@@ -1,6 +1,6 @@
 ---
-title: "Residue Theorem"
-weight: 1
+title: "留数定理"
+weight: 9
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false

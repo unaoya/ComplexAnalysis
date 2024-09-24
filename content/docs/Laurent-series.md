@@ -1,6 +1,6 @@
 ---
-title: "Laurent Series"
-weight: 1
+title: "ローラン級数"
+weight: 8
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false

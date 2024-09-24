@@ -1,6 +1,6 @@
 ---
-title: "Cauchy Integral Formula"
-weight: 1
+title: "コーシーの積分公式"
+weight: 6
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false

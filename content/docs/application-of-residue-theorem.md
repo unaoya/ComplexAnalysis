@@ -1,6 +1,6 @@
 ---
-title: "Application of Residue Theorem"
-weight: 1
+title: "留数定理の応用"
+weight: 10
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false
