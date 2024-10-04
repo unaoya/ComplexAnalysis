@@ -282,75 +282,76 @@ $$
     \int^\infty_{0}\cos(x^2)dx=\int^\infty_{0}\sin(x^2)dx=\frac{\sqrt{\pi}}{2\sqrt{2}}
   $$
   を計算しよう。
-    
-  曲線\\(C_R\\)を原点中心で半径\\(R\\)の扇型で弧が偏角が\\(0\\)から\\(\dfrac{\pi}{4}\\)の部分に反時計回りに向きをつけたものとする。
-  この曲線に沿って\\(f(z)=e^{-z^2}\\)を積分する。
-
-  曲線のパラメータづけを
-  $$
-    \gamma_1(t)=t, t\in[{0},R]\\\\
-    \gamma_2(t)=R\exp(i\dfrac{\pi}{4}t), t\in[{0},1]\\\\
-    \gamma_3(t)=(R-t)\exp(i\dfrac{\pi}{4}), t\in[{0},R]
-  $$
-  とする。
-    
-  これらでの積分は
-  $$
-    \int_{0}^R\exp(-t^2)dt+\int_{0}^1\exp(-R^2\exp(i\frac{\pi}{2}t))iR\frac{\pi}{4}\exp(i\frac{\pi}{4}t)dt+\int_{0}^R\exp(-(R-t)^2i)(-\exp(i\frac{\pi}{4}))dt
-  $$
-  となる。
-  
-  第二項は
-  $$
-    \lvert \int_{0}^1\exp(-R^2\exp(i\frac{\pi}{2}t))iR\frac{\pi}{4}\exp(i\frac{\pi}{4}t)dt\rvert
-    \leq\int_{0}^1\lvert \exp(-R^2\exp(i\frac{\pi}{2}t))iR\frac{\pi}{4}\exp(i\frac{\pi}{4}t)\rvert dt\\\\
-    \leq\int_{0}^1R\exp(-R^2\cos(\frac{\pi}{2}t))\frac{\pi}{4}dt
-  $$
-  となる。
-    
-  さらに、\\(t\in[0,1]\\)において\\(\cos\dfrac{\pi}{2}t\geq1-t\\)であることから、
-  $$
-    \int_{0}^1R\exp(-R^2\cos(\frac{\pi}{2}t))\frac{\pi}{4}dt
-    \leq\frac{\pi}{4}R\int_{0}^1\exp(-R^2(1-t))dt\\\\
-    =\frac{\pi}{4}R\int_1^{0}\exp(-R^2s)d(1-s)\\\\
-    =\frac{\pi}{4}R\int_{0}^1\exp(-R^2s)ds\\\\
-    =\frac{\pi}{4}R\frac{-1}{R^2}[\exp(-R^2s)]^1_{0}
-  $$
-  となり、\\(R\to0\\)で\\(0\\)に収束することがわかる。
-    
-  第一項の計算には
-  $$
-    \int^\infty_{-\infty}\exp(-x^2)dx=\sqrt{\pi}
-  $$
-  を用いる。
-  第一項について\\(R\to\infty\\)での極限は
-  $$
-    \int^\infty_{0}\exp(-t^2)dt=\frac{\sqrt{\pi}}{2}
-  $$
-  となる。
-    
-  次に第三項について、
-  $$
-    \int_{0}^R\exp(-(R-t)^2i)(-\exp(i\frac{\pi}{4}))dt
-    =\int_R^{0}\exp(-s^2i)(-\exp(i\frac{\pi}{4}))d(R-s)\\\\
-    =-\exp(i\frac{\pi}{4})\int_{0}^R\exp(-s^2i)ds\\\\
-    =-\exp(i\frac{\pi}{4})\int_{0}^R\cos(-s^2)+i\sin(-s^2)ds
-  $$
-  となる。
-    
-  \\(f(z)=\exp(-z^2)\\)は扇型の内部で正則だから、
-  一周積分すると\\(0\\)になる。
-    
-  最後に\\(R\to\infty\\)の極限をとってをまとめると、
-  $$
-    \frac{\sqrt{\pi}}{2}-\exp(i\frac{\pi}{4})\int_{0}^\infty\cos(-s^2)+i\sin(-s^2)ds=0
-  $$
-  となるので、実部と虚部をそれぞれ比較することで
-  $$
-    \int_{0}^\infty\cos(-x^2)ds=\int_{0}^\infty\sin(-x^2)ds=\sqrt{\frac{\pi}{2}}
-  $$
-  となる。  
 {{< /hint >}}
+
+正の実数$R$に対し、曲線\\(C_R\\)を原点中心で半径\\(R\\)の扇型で弧が偏角が\\(0\\)から\\(\dfrac{\pi}{4}\\)の部分に反時計回りに向きをつけたものとする。
+この曲線に沿って\\(f(z)=e^{-z^2}\\)を積分する。
+
+曲線のパラメータづけを
+$$
+  \gamma_1(t)=t, t\in[{0},R]\\\\
+  \gamma_2(t)=R\exp(i\dfrac{\pi}{4}t), t\in[{0},1]\\\\
+  \gamma_3(t)=(R-t)\exp(i\dfrac{\pi}{4}), t\in[{0},R]
+$$
+とする。
+  
+これらでの積分は
+$$
+  \int_{0}^R\exp(-t^2)dt+\int_{0}^1\exp(-R^2\exp(i\frac{\pi}{2}t))iR\frac{\pi}{4}\exp(i\frac{\pi}{4}t)dt+\int_{0}^R\exp(-(R-t)^2i)(-\exp(i\frac{\pi}{4}))dt
+$$
+となる。
+
+第二項は
+$$
+  \left\lvert \int_{0}^1\exp(-R^2\exp(i\frac{\pi}{2}t))iR\frac{\pi}{4}\exp(i\frac{\pi}{4}t)dt\right\rvert
+  \leq\int_{0}^1\lvert \exp(-R^2\exp(i\frac{\pi}{2}t))iR\frac{\pi}{4}\exp(i\frac{\pi}{4}t)\rvert dt\\\\
+  \leq\int_{0}^1R\exp(-R^2\cos(\frac{\pi}{2}t))\frac{\pi}{4}dt
+$$
+となる。
+  
+さらに、\\(t\in[0,1]\\)において\\(\cos\dfrac{\pi}{2}t\geq1-t\\)であることから、
+$$
+  \int_{0}^1R\exp(-R^2\cos(\frac{\pi}{2}t))\frac{\pi}{4}dt
+  \leq\frac{\pi}{4}R\int_{0}^1\exp(-R^2(1-t))dt\\\\
+  =\frac{\pi}{4}R\int_1^{0}\exp(-R^2s)d(1-s)\\\\
+  =\frac{\pi}{4}R\int_{0}^1\exp(-R^2s)ds\\\\
+  =\frac{\pi}{4}R\frac{-1}{R^2}[\exp(-R^2s)]^1_{0}\\\\
+  =\frac{\pi}{4R}(1-\exp(-R^2))
+$$
+となり、\\(R\to0\\)で\\(0\\)に収束することがわかる。
+  
+第一項の計算には
+$$
+  \int^\infty_{-\infty}\exp(-x^2)dx=\sqrt{\pi}
+$$
+を用いる。
+第一項について\\(R\to\infty\\)での極限は
+$$
+  \int^\infty_{0}\exp(-t^2)dt=\frac{\sqrt{\pi}}{2}
+$$
+となる。
+  
+次に第三項について、
+$$
+  \int_{0}^R\exp(-(R-t)^2i)(-\exp(i\frac{\pi}{4}))dt
+  =\int_R^{0}\exp(-s^2i)(-\exp(i\frac{\pi}{4}))d(R-s)\\\\
+  =-\exp(i\frac{\pi}{4})\int_{0}^R\exp(-s^2i)ds\\\\
+  =-\exp(i\frac{\pi}{4})\int_{0}^R\cos(-s^2)+i\sin(-s^2)ds
+$$
+となる。
+  
+\\(f(z)=\exp(-z^2)\\)は扇型の内部で正則だから、
+一周積分すると\\(0\\)になる。
+  
+最後に\\(R\to\infty\\)の極限をとってをまとめると、
+$$
+  \frac{\sqrt{\pi}}{2}-\exp(i\frac{\pi}{4})\int_{0}^\infty\cos(-s^2)+i\sin(-s^2)ds=0
+$$
+となるので、実部と虚部をそれぞれ比較することで
+$$
+  \int_{0}^\infty\cos(-x^2)ds=\int_{0}^\infty\sin(-x^2)ds=\sqrt{\frac{\pi}{2}}
+$$
+となる。  
 
 {{< hint >}}
   
@@ -358,78 +359,79 @@ $$
     \int^\infty_{0}\frac{\sin x}{x}dx=\frac{\pi}{2}
   $$
   を証明する。
-    
-  \\(R, T, \epsilon\\)をそれぞれ適当な大きさの実数とし、
-  \\(C_1\\)を\\(から\\)R+Ti\\(を結ぶ線分、\\)C_2\\(を+Ti\\)から\\(-R+Ti\\)を結ぶ線分、
-  \\(C_3\\)を\\(-R+Ti\\)から\\(-R\\)を結ぶ線分、\\(C_4\\)を\\(-R\\)から\\(-\epsilon\\)を結ぶ線分、
-  \\(C_5\\)を原点中心で半径\\(\epsilon\\)の上半円周を時計回りに向きをつけたもの、
-  \\(C_6\\)を\\(\epsilon\\)から\\(R\\)を結ぶ線分とする。
-    
-  この曲線に沿って\\(f(z)=\dfrac{e^{iz}}{z}\\)を積分する。
-  上の曲線で囲まれた領域の内部で\\(f(z)\\)は正則だから、一周積分した値は\\(0\\)である。
-  
-  まず\\(C_1\\)ではパラメータを\\(R+ti\\)とつけることで、
-  $$
-    \lvert \int_{0}^T\frac{\exp(iR-t) \rvert{R+ti}idt}\rvert
-    \leq\int_{0}^T\lvert \frac{\exp(iR-t) \rvert{R+ti}}dt\rvert
-    \leq\int_{0}^T\frac{\exp(-t)}{R}dt
-    \leq\int_{0}^\infty\frac{\exp(-t)}{R}dt
-    \leq\frac{1}{R}
-  $$
-  となり、これは任意の\\(T\\)について\\(R\to\infty\\)で\\(0\\)に収束する。
-  \\(C_3\\)についても同様。
-  
-  \\(C_2\\)ではパラメータを\\(t+Ti\\)とつけることで
-  $$
-    \lvert \int_R^{-R} \rvert\frac{\exp(it-T)}{t+Ti}dt
-    \leq\frac{1}{T}\int^{-R}_R\exp(-T)dt
-    =\frac{2Re^{-T}}{T}
-  $$
-  となり、これは任意の\\(R\\)について\\(T\to\infty\\)で\\(0\\)に収束する。
-  
-  \\(C_4, C_6\\)での積分については
-  $$
-    \int_{-R}^{-\epsilon}\frac{\exp(iz)}{z}dz+\int_\epsilon^R\frac{\exp(iz)}{z}dz=
-    \int_\epsilon^R\frac{\exp(-iz)}{-z}dz+\int_\epsilon^R\frac{\exp(iz)}{z}dz=
-    2i\int^R_\epsilon\frac{\sin z}{z}dz
-  $$
-  となる。
-  \\(\epsilon\to0, R\to\infty\\)の極限を取ることで求めるべき積分値に収束する。
-  
-  最後に\\(C_5\\)での積分について見てみよう。
-  \\(\exp(iz)\\)は全複素平面で正則函数であり、\\(z=0\\)の周りのテイラー展開を考えることで
-  $$
-    \frac{\exp(iz)}{z}=z^{-1}+g(z)
-  $$
-  と収束半径\\(\infty\\)の冪級数\\(g(z)\\)を用いて表すことができ、
-  この\\(g(z)\\)は\\(\lvert z \rvert\leq1\\)に対し\\(\lvert g(z) \rvert\leq M\\)なる\\(M\\)が存在する。
-  このことにより、
-  $$
-    \lvert \int_{C_5}g(z)dz\rvert\leq\pi\epsilon M
-  $$
-  となり、\\(\epsilon\to0\\)で\\(0\\)に収束する。
-  一方、直接計算により
-  $$
-    \int_{C_5}z^{-1}dz=-\pi i
-  $$
-  となるから、\\(\epsilon\to0\\)の極限で
-  $$
-    \int_{C_5}\frac{\exp(iz)}{z}dz\to-\pi i
-  $$
-  である。
-    
-  これらを全てまとめ、\\(T\to\infty, R\to\infty, \epsilon\to0\\)の順に極限を取ることで
-  $$
-    2i\int^\infty_{0}\frac{\sin x}{x}dx-\pi i=0
-  $$
-  が得られる。
 {{< /hint >}}
+  
+\\(R, T, \epsilon\\)をそれぞれ適当な大きさの実数とし、
+\\(C_1\\)を\\(から\\)R+Ti\\(を結ぶ線分、\\)C_2\\(を+Ti\\)から\\(-R+Ti\\)を結ぶ線分、
+\\(C_3\\)を\\(-R+Ti\\)から\\(-R\\)を結ぶ線分、\\(C_4\\)を\\(-R\\)から\\(-\epsilon\\)を結ぶ線分、
+\\(C_5\\)を原点中心で半径\\(\epsilon\\)の上半円周を時計回りに向きをつけたもの、
+\\(C_6\\)を\\(\epsilon\\)から\\(R\\)を結ぶ線分とする。
+  
+この曲線に沿って\\(f(z)=\dfrac{e^{iz}}{z}\\)を積分する。
+上の曲線で囲まれた領域の内部で\\(f(z)\\)は正則だから、一周積分した値は\\(0\\)である。
+
+まず\\(C_1\\)ではパラメータを\\(R+ti\\)とつけることで、
+$$
+  \lvert \int_{0}^T\frac{\exp(iR-t) \rvert{R+ti}idt}\rvert
+  \leq\int_{0}^T\lvert \frac{\exp(iR-t) \rvert{R+ti}}dt\rvert
+  \leq\int_{0}^T\frac{\exp(-t)}{R}dt
+  \leq\int_{0}^\infty\frac{\exp(-t)}{R}dt
+  \leq\frac{1}{R}
+$$
+となり、これは任意の\\(T\\)について\\(R\to\infty\\)で\\(0\\)に収束する。
+\\(C_3\\)についても同様。
+
+\\(C_2\\)ではパラメータを\\(t+Ti\\)とつけることで
+$$
+  \lvert \int_R^{-R} \rvert\frac{\exp(it-T)}{t+Ti}dt
+  \leq\frac{1}{T}\int^{-R}_R\exp(-T)dt
+  =\frac{2Re^{-T}}{T}
+$$
+となり、これは任意の\\(R\\)について\\(T\to\infty\\)で\\(0\\)に収束する。
+
+\\(C_4, C_6\\)での積分については
+$$
+  \int_{-R}^{-\epsilon}\frac{\exp(iz)}{z}dz+\int_\epsilon^R\frac{\exp(iz)}{z}dz=
+  \int_\epsilon^R\frac{\exp(-iz)}{-z}dz+\int_\epsilon^R\frac{\exp(iz)}{z}dz=
+  2i\int^R_\epsilon\frac{\sin z}{z}dz
+$$
+となる。
+\\(\epsilon\to0, R\to\infty\\)の極限を取ることで求めるべき積分値に収束する。
+
+最後に\\(C_5\\)での積分について見てみよう。
+\\(\exp(iz)\\)は全複素平面で正則函数であり、\\(z=0\\)の周りのテイラー展開を考えることで
+$$
+  \frac{\exp(iz)}{z}=z^{-1}+g(z)
+$$
+と収束半径\\(\infty\\)の冪級数\\(g(z)\\)を用いて表すことができ、
+この\\(g(z)\\)は\\(\lvert z \rvert\leq1\\)に対し\\(\lvert g(z) \rvert\leq M\\)なる\\(M\\)が存在する。
+このことにより、
+$$
+  \lvert \int_{C_5}g(z)dz\rvert\leq\pi\epsilon M
+$$
+となり、\\(\epsilon\to0\\)で\\(0\\)に収束する。
+一方、直接計算により
+$$
+  \int_{C_5}z^{-1}dz=-\pi i
+$$
+となるから、\\(\epsilon\to0\\)の極限で
+$$
+  \int_{C_5}\frac{\exp(iz)}{z}dz\to-\pi i
+$$
+である。
+  
+これらを全てまとめ、\\(T\to\infty, R\to\infty, \epsilon\to0\\)の順に極限を取ることで
+$$
+  2i\int^\infty_{0}\frac{\sin x}{x}dx-\pi i=0
+$$
+が得られる。
 
 {{< hint >}}
 $$
 	\frac{1}{\sqrt{2\pi}}\int^\infty_{-\infty}\exp(-x^2-itx)dx
 $$
 を計算しよう。
+{{< /hint >}}
 
 \\(z=b, b+\dfrac{it}{2}, -a+\dfrac{it}{2}, -a\\)を頂点にもつ長方形の周に反時計回りに向きをつけた曲線を\\(C\\)とする。
 このとき、虚軸と平行な辺での積分は
@@ -455,4 +457,3 @@ $$
 	\frac{1}{\sqrt{2}}e^{-t^2/4}
 $$
 と計算できる。
-{{< /hint >}}
