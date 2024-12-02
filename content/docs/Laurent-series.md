@@ -51,7 +51,9 @@ $$
   f(z)=\sum_{n=-\infty}^\infty a_n(z-a)^n
 $$
 を持つ。
-ローラン級数展開の係数\\(a_n\\)は積分表示を持つ。
+つまり、\\(z=a\\)の近傍で右辺が収束し\\(f(z)\\)の値と一致する。
+
+正則関数の冪級数展開と同様に、ローラン級数展開の係数\\(a_n\\)は積分表示を持つ。
 
 特に負冪部分
 $$
@@ -59,17 +61,22 @@ $$
 $$
 を主要部という。
 
-\\(f\\)が\\(z=\alpha\\)を孤立特異点に持つとする。
-\\(\alpha\\)を中心とする同心円\\(C_1, C_2\\)を考え、半径の小さい方を\\(C_1\\)とする。
+孤立特異点\\(a\\)の周りでローラン展開できることを証明しよう。
+
+\\(f\\)が\\(z=a\\)を孤立特異点に持つとする。
+\\(a\\)を中心とする同心円\\(C_1, C_2\\)を\\(f\\)が正則な円内にとり、半径の小さい方を\\(C_1\\)とする。
 \\(C_1, C_2\\)に挟まれた部分にある点\\(z\\)をとる。
-円の向きはいずれも反時計回り。
-\\(z\\)を中心とする小さな円を\\(C\\)とすると、コーシーの積分定理より
+円の向きはいずれも反時計回りとする。
+
+\\(z\\)を中心とする小さな円に反時計回りに向きをつけたものを\\(C\\)とすると、コーシーの積分定理より
 $$
 	f(z)=\frac{1}{2\pi i}\int_C\frac{f(\zeta)}{\zeta-z}d\zeta
 $$
-であり、一方で\\(f\\)の正則性から積分路を連続変形して\\(\int_C=-\int_{C_1}+\int_{C_2}\\)であるから、
+である。
+
+\\(f\\)の正則性から積分路を連続変形して\\(\int_C=\int_{C_1}-\int_{C_2}\\)であるから、
 $$
-	f(z)=-\frac{1}{2\pi i}\int_{C_1}\frac{f(\zeta)}{\zeta-z}d\zeta+\frac{1}{2\pi i}\int_{C_2}\frac{f(\zeta)}{\zeta-z}d\zeta
+	f(z)=\frac{1}{2\pi i}\int_{C_1}\frac{f(\zeta)}{\zeta-z}d\zeta-\frac{1}{2\pi i}\int_{C_2}\frac{f(\zeta)}{\zeta-z}d\zeta
 $$
 となる。
 
@@ -80,28 +87,31 @@ $$
 ここで、\\(\zeta\in C_2\\)であれば\\(\lvert z-\alpha\rvert&lt;\lvert \zeta-\alpha\rvert\\)であるから、
 $$
 	\dfrac{1}{(\zeta-\alpha)-(z-\alpha)}=\dfrac{1}{\zeta-\alpha}\dfrac{1}{1-(z-\alpha)/(\zeta-\alpha)}\\\\
-	=\dfrac{1}{\zeta-\alpha}\sum_{n=0}^\infty(\dfrac{z-\alpha}{\zeta-\alpha})^n
+	=\dfrac{1}{\zeta-\alpha}\sum_{n=0}^\infty\left(\dfrac{z-\alpha}{\zeta-\alpha}\right)^n
 $$
 が収束する。
 一方で、\\(\zeta\in C_1\\)であれば\\(\lvert z-\alpha\rvert&gt;\lvert \zeta-\alpha\rvert\\)であるから、
 $$
 	\dfrac{1}{(\zeta-\alpha)-(z-\alpha)}=-\dfrac{1}{z-\alpha}\dfrac{1}{1-(\zeta-\alpha)/(z-\alpha)}\\\\
-	=\dfrac{1}{z-\alpha}\sum_{n=0}^\infty(\dfrac{\zeta-\alpha}{z-\alpha})^n
+	=\dfrac{1}{z-\alpha}\sum_{n=0}^\infty\left(\dfrac{\zeta-\alpha}{z-\alpha}\right)^n
 $$
 が収束する。
 
 以上から、
 $$
 	f(z)=-\frac{1}{2\pi i}\int_{C_1}\frac{f(\zeta)}{\zeta-z}d\zeta+\frac{1}{2\pi i}\int_{C_2}\frac{f(\zeta)}{\zeta-z}d\zeta\\\\
-	=\frac{1}{2\pi i}\int_{C_1}\frac{1}{\zeta-\alpha}\sum_{n=1}^\infty(\frac{\zeta-\alpha}{z-\alpha})^nf(\zeta)d\zeta+
-	\frac{1}{2\pi i}\int_{C_2}\frac{1}{\zeta-\alpha}\sum_{n=0}^\infty(\frac{z-\alpha}{\zeta-\alpha})^nf(\zeta)d\zeta\\\\
-	=\frac{1}{2\pi i}\sum_{n=1}^\infty(\int_{C_1}(\zeta-\alpha)^{-n}f(\zeta)d\zeta)(z-\alpha)^{-n}
-	+\frac{1}{2\pi i}\sum_{n=0}^\infty(\int_{C_2}(\zeta-\alpha)^{-(n+1)}f(\zeta)d\zeta)(z-\alpha)^{n}
+	=\frac{1}{2\pi i}\int_{C_1}\frac{1}{\zeta-\alpha}\sum_{n=1}^\infty\left(\frac{\zeta-\alpha}{z-\alpha}\right)^nf(\zeta)d\zeta+
+	\frac{1}{2\pi i}\int_{C_2}\frac{1}{\zeta-\alpha}\sum_{n=0}^\infty\left(\frac{z-\alpha}{\zeta-\alpha}\right)^nf(\zeta)d\zeta
+$$
+であり、さらに無限和と積分の順序を交換して、
+$$
+	=\frac{1}{2\pi i}\sum_{n=1}^\infty\left(\int_{C_1}(\zeta-\alpha)^{-n}f(\zeta)d\zeta\right)(z-\alpha)^{-n}
+	+\frac{1}{2\pi i}\sum_{n=0}^\infty\left(\int_{C_2}(\zeta-\alpha)^{-(n+1)}f(\zeta)d\zeta\right)(z-\alpha)^{n}
 $$
 となる。
-これは\\(z\\)によらないから、\\(C_1, C_2\\)の半径を動かすことができ、
+\\(C_1, C_2\\)の半径を動かすことで係数は変わらず、\\(a\\)の近くの任意の\\(z\\)に対して
 $$
-	f(z)=\sum_{n=-\infty}^\infty(\frac{1}{2\pi i}\int_{\lvert z-\alpha\rvert=r}\frac{f(\zeta)}{(\zeta-\alpha)^{n+1}}d\zeta)(z-\alpha)^n
+	f(z)=\sum_{n=-\infty}^\infty\left(\frac{1}{2\pi i}\int_{\lvert z-\alpha\rvert=r}\frac{f(\zeta)}{(\zeta-\alpha)^{n+1}}d\zeta\right)(z-\alpha)^n
 $$
 となる。
 
@@ -135,18 +145,18 @@ $$
 
 ## 孤立特異点の分類
 
-孤立特異点を三種類に分類する。
-これはローラン級数展開の主要部の様子によって、また同値だが特異点に近づくときの関数の振る舞いによっている。
-除去可能特異点、極、真性特異点の三種類に分類する。
+孤立特異点を除去可能特異点、極、真性特異点の三種類に分類する。
+これはローラン級数展開の主要部の様子による分類である。
+また同値な条件だが、特異点に近づくときの関数の振る舞いによった他分類でもある。
 
 除去可能特異点は本質的には特異点ではないような孤立特異点で、その点まで正則に関数を延長できる。
-極は特異性を持つが比較的扱いやすい。
-真性特異点は扱いにくい特異点と言える。
+極はその特異点に近づくときに関数が無限大に発散するような孤立特異点で、特異性を持つが比較的扱いやすい。
+真性特異点はこれらに比べて扱いにくい特異点である。
 
-主要部が\\(0\\)なとき除去可能特異点、有限和であれば極、無限和であれば真性特異点である。
+孤立特異点\\(a\\)におけるローラン展開の主要部が\\(0\\)なとき除去可能特異点、有限和であれば極、無限和であれば真性特異点である。
 
-\\(z\to\alpha\\)での振る舞い。
-除去可能特異点なら有限値に収束、極なら\\(\infty\\)に発散、真性特異点なら近づき方によっていろんな値になる。
+また\\(z\to\alpha\\)での\\(f\\)振る舞いは、
+除去可能特異点なら有限値に収束、極なら\\(\infty\\)に発散、真性特異点なら近づき方によっていろんな値になることが示せる。
 
 ### 除去可能特異点
 
@@ -194,8 +204,8 @@ $$
 ### 真性特異点
 
 いずれでもない場合、真性特異点という。
-\\(e^{-1/x}\\)とか\\(\sin\dfrac{1}{z}\\)とか？
-主要ぶが無限話
+つまり主要部が無限和であるようなもの。
+\\(e^{-1/z}\\)とか\\(\sin\dfrac{1}{z}\\)などは\\(z=0\\)を真性特異点に持つ。
 
 \\(\alpha\\)が\\(f\\)の真性特異点のとき、
 \\(z\to\alpha\\)をうまく近づけると\\(f(z)\\)をどんな値にも近づけられる。
@@ -203,7 +213,9 @@ $$
 {{< hint >}}
 \\(f(z)=e^{1/z}\\)とする。
 \\(z=1/(a+bi)\\)とすると、\\(f(z)=e^{2\pi(a+bi)}=e^a(\cos b+i\sin b)\\)である。
-よって、\\(b\\)を固定して
+例えば、\\(a=0\\)と固定する。
+\\(b\to\infty\\)とすれば\\(z=1/bi\to 0\\)であり、このとき、\\(f(z)=(\cos b+i\sin b)\\)は\\(b\to\infty\\)で単位円周上を回り続ける。
+特に、\\(b_n=\theta+2\pi n\\)として、\\(n\to\infty\\)とすると\\(b_n\to\infty\\)であり、\\(f(b_ni)=\cos \theta+i\sin\theta\\)なので、\\(n\to\infty\\)で\\(\cos\theta+i\sin\theta\\)に収束する。
 {{< /hint >}}
 
 ## 有理型関数

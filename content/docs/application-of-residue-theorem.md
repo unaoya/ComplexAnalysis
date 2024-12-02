@@ -14,38 +14,54 @@ weight: 10
 
 ## 三角関数を含む定積分
 
-三角関数の有理関数の積分。
+三角関数の有理式の積分を留数定理を用いて計算しよう。
 \\(F(X,Y)\\)を\\(X, Y\\)についての有理式としたとき、
 $$
 \int^{2\pi}_0F(\cos\theta, \sin\theta)d\theta
 $$
-を計算する。
+を考える。
 
-\\(z=e^{i\theta}\\)とおく。
-\\(\theta\\)の\\(0\leq\theta\leq2\pi\\)での積分は\\(\lvert z \rvert=1\\)での積分になる。
+単位円周\\(\lvert z \rvert=1\\)正の向き\\(C\\)での線積分を\\(\gamma(\theta)=e^{i\theta}\\)とパラメータづけすることで、
+\\(\theta\\)の\\(0\leq\theta\leq2\pi\\)での積分に書き換えることができる。
+この結果が上の積分になるように整理する。
 $$
 \cos\theta=\frac{z+z^{-1}}{2}, \sin\theta=\frac{z-z^{-1}}{2i}, dz=ie^{i\theta}d\theta=izd\theta
 $$
 となるので、
 $$
-\int^{2\pi}_0F(\cos\theta, \sin\theta)d\theta=\int_CF(\frac{z+z^{-1}}{2}, \frac{z-z^{-1}}{2})\frac{dz}{iz}
+\int^{2\pi}_0F(\cos\theta, \sin\theta)d\theta=\int_CF\left(\frac{z+z^{-1}}{2}, \frac{z-z^{-1}}{2}\right)\frac{dz}{iz}
 $$
 となる。
 
+この単位円周での線積分を留数定理を用いて計算する。
 
+いくつか例題を見てみよう。
 {{< hint >}}
   $$
-  \int^{2\pi}_0\frac{d\theta}{3+\sin\theta}=\int_C\frac{1}{3+(z-z^{-1})/2}\frac{dz}{iz}\\\\
-  =\int_C\frac{2}{6z+z^2-1}\frac{1}{i}dz
+    \int^{2\pi}_0\frac{d\theta}{3+\sin\theta} 
   $$
-  ここで、\\(\dfrac{1}{6z+z^2-1}\\)の孤立特異点は\\(z=-3\pm\sqrt{10}\\)であり、\\(\lvert z\rvert&lt;1\\)なのは、\\(z=-3+\sqrt{10}\\)である。
+  を計算する。
+
+  まず上の通り線積分を解釈すると
+  $$
+    \int^{2\pi}_0\frac{d\theta}{3+\sin\theta}=\int_C\frac{1}{3+(z-z^{-1})/2}\frac{dz}{iz}
+    =\int_C\frac{2}{6z+z^2-1}\frac{1}{i}dz
+    =\frac{2}{i}\int_C\frac{dz}{6z+z^2-1}
+  $$
+  となる。
+
+  ここで、\\(\dfrac{1}{6z+z^2-1}\\)の正則でない孤立特異点は\\(z=-3\pm\sqrt{10}\\)であり、これらはいずれも\\(1\\)位の極である。
+  このうち\\(\lvert z\rvert&lt;1\\)なのは、\\(z=-3+\sqrt{10}\\)のみである。
+
   \\(z=-3+\sqrt{10}\\)での留数は、
   $$
-  \frac{1}{(z-(-3+\sqrt{10}))(z-(-3-\sqrt{10}))}(z-(-3+\sqrt{10}))\to\frac{1}{2\sqrt{10}}
+    \frac{1}{(z-(-3+\sqrt{10}))(z-(-3-\sqrt{10}))}(z-(-3+\sqrt{10}))\to\frac{1}{2\sqrt{10}}
   $$
-  なので、積分値は留数定理により
+  である。
+  
+  よって、留数定理により
   $$
-  \int_C\frac{2}{6z+z^2-1}\frac{1}{i}dz=\frac{2pi}{\sqrt{10}}
+    \frac{2}{i}\int_C\frac{dz}{6z+z^2-1} = \frac{2}{i}\frac{2\pi i}{2\sqrt{10}} = \frac{2\pi}{\sqrt{10}}
   $$
   となる。
 {{< /hint >}}
@@ -60,90 +76,112 @@ $$
 
 {{< hint >}}
   $$
-  I=\int^\infty_{-\infty}\frac{1}{1+x^4}dx=\frac{\pi}{\sqrt{2}}
+    \int^\infty_{-\infty}\frac{1}{1+x^4}dx=\frac{\pi}{\sqrt{2}}
   $$
   を示す。
 
-  \\(R>0\\)に対して、\\(H_R\\)を原点中心半径\\(R\\)の上半円、\\(I_R\\)を閉区間\\([-R, R]\\)とし、\\(H_R+I_R\\)で留数定理を用いて
+  \\(R>0\\)に対して、\\(H_R\\)を原点中心半径\\(R\\)の上半円の正の向き、\\(I_R\\)を閉区間\\([-R, R]\\)負から正への向きとし、\\(C_R=H_R+I_R\\)で留数定理を用いて
   $$
-  \int_C\frac{1}{1+z^4}dz
+    \int_{C_R}\frac{1}{1+z^4}dz
   $$
   を計算する。
 
   \\(f(z)=\dfrac{1}{1+z^4}\\)は\\(z=e^{\pi i/4}, e^{3\pi i/4}, e^{5\pi i/4}, e^{7\pi i/4}\\)でそれぞれ\\(1\\)の極を持つ。
-  \\(C\\)の内部にあるのは\\(z=e^{\pi i/4}, e^{3\pi i/4}\\)の二つ。
+  \\(C_R\\)の内部にあるのは\\(z=e^{\pi i/4}, e^{3\pi i/4}\\)の二つ。
   これらでの留数を求める。
   ロピタルの定理を使って計算すると、
   $$
-  \lim_{z\to e^{\pi i/4}}\frac{z-e^{\pi i/4}}{1+z^4}=\frac{1}{4e^{3\pi i/4}}\\\\
-  \lim_{z\to e^{3\pi i/4}}\frac{z-e^{3\pi i/4}}{1+z^4}=\frac{1}{4e^{\pi i/4}}
+    \lim_{z\to e^{\pi i/4}}\frac{z-e^{\pi i/4}}{1+z^4}=\frac{1}{4e^{3\pi i/4}}\\\\
+    \lim_{z\to e^{3\pi i/4}}\frac{z-e^{3\pi i/4}}{1+z^4}=\frac{1}{4e^{\pi i/4}}
   $$
   である。
   よって、
   $$
-  \int_C\frac{1}{1+z^4}dz=2\pi i(\frac{e^{-3\pi i/4}+e^{-\pi i/4}}{4})=\frac{\pi i}{2}(-2i\frac{1}{\sqrt{2}})=\frac{\pi}{\sqrt{2}}
+    \int_{C_R}\frac{1}{1+z^4}dz=2\pi i\left(\frac{e^{-3\pi i/4}+e^{-\pi i/4}}{4}\right)=\frac{\pi i}{2}(-2i\frac{1}{\sqrt{2}})=\frac{\pi}{\sqrt{2}}
   $$
   となる。
   これは\\(R\\)には依存しない。
 
-  一方で、\\(\int_{I_R}, \int_{H_R}\\)を求める。
+  また、\\(I_R\\)を\\(\gamma(t)=t\\)でパラメータづけると
   $$
-  \int_{I_R}\frac{1}{1+z^4}dz=\int^R_{-R}\frac{1}{1+z^4}dz
+    \int_{I_R}\frac{1}{1+z^4}dz=\int^R_{-R}\frac{1}{1+t^4}dt
   $$
-  であり、これの\\(R\to\infty\\)の極限が（広義積分の存在は別に証明が必要だが、）求める\\(I\\)である。
+  であり、これの\\(R\to\infty\\)の極限が（広義積分の存在は別に証明が必要だが、）求める積分である。
 
-  \\(\lvert z\rvert=R\\)のとき、\\(R\\)がが十分大きければ三角不等式より\\(R^4-1\lvert1+z^4\rvert\leq R^4+1\\)となるので、
+  \\(\lvert z\rvert=R\\)のとき、\\(R\\)が十分大きければ三角不等式より\\(R^4-1\leq \lvert1+z^4\rvert\leq R^4+1\\)となるので、
   $$
-  \lvert\int_{H_R}\frac{1}{1+z^4}dz\rvert\leq\int_{H_R}\lvert\frac{1}{1+z^4}dz\rvert\\\\
-  \leq\int_{H_R}\frac{1}{R^4-1}dz=\frac{\pi R}{R^4-1}
+    \left\lvert\int_{H_R}\frac{1}{1+z^4}dz\right\rvert
+    \leq\int_{H_R}\left\lvert\frac{1}{1+z^4}\right\rvert\lvert dz\rvert
+    \leq\int_{H_R}\frac{1}{R^4-1}\lvert dz\rvert=\frac{\pi R}{R^4-1}
   $$
   となり、\\(R\to\infty\\)で\\(0\\)に収束する。
+
+  以上より
+  $$
+    \frac{\pi}{\sqrt{2}}=\int_{I_R}\frac{1}{1+z^4}dz+\int_{H_R}\frac{1}{1+z^4}dz
+  $$
+  で、\\(R\to\infty\\)の極限をとることで、
+  $$
+    \frac{\pi}{\sqrt{2}}=\int_{-\infty}^\infty\frac{1}{1+x^4}dx
+  $$
+  が得られる。
 {{< /hint >}}
 
 {{< hint >}}
   $$
-  \int^\infty_0\frac{1}{x^n+1}dx=\frac{\pi}{n\sin(\pi/n)}
-  $$
-  を示す。
-  ここでは\\(n=3\\)の場合に
-  $$
-  \int^\infty_0\frac{1}{x^3+1}dx=\frac{ 2\pi}{3\sqrt{3}}
+    \int^\infty_0\frac{1}{x^3+1}dx=\frac{ 2\pi}{3\sqrt{3}}
   $$
   を示す。
 
   \\(f(z)=\dfrac{1}{z^3+1}\\)とおく。
   積分経路\\(C=C_1+C_2+C_3\\)を\\(C_1:z=x, 0\leq x\leq R, C_2:z=Re^{i\theta}, 0\leq\theta\leq\dfrac{2\pi}{3}, C_3:z=Re^{2\pi i/3}x\\)と定める。
-  \\(C\\)内にある\\(f\\)の曲は\\(z=e^{\pi i/3}\\)で留数は、ロピタルの定理を用いて
+  \\(C\\)内にある\\(f\\)の極は\\(z=e^{\pi i/3}\\)で留数は、ロピタルの定理を用いて
   $$
-  \lim_{z\to e^{\pi i/3}}\frac{z-e^{\pi i/3}}{z^3+1}=\frac{1}{3e^{2\pi i/3}}
+    \lim_{z\to e^{\pi i/3}}\frac{z-e^{\pi i/3}}{z^3+1}=\frac{1}{3e^{2\pi i/3}}
   $$
   である。
 
   それぞれの積分は
   $$
-  \int_{C_1}f(z)dz=\int^R_0\frac{1}{x^3+1}dx=I_R
+    \int_{C_1}f(z)dz=\int^R_0\frac{1}{x^3+1}dx
   $$
-  である。
+  であり、\\(R\to\infty\\)としたものが求めるべき積分である。
   また、
   $$
-  \int_{C_3}f(z)dz=-\int^R_0\frac{1}{x^3+1}e^{2\pi i/3}dx=-e^{2\pi i/3}I_R
+    \int_{C_3}f(z)dz=-\int^R_0\frac{1}{x^3+1}e^{2\pi i/3}dx=-e^{2\pi i/3}\int^R_0\frac{1}{x^3+1}dx
   $$
   である。
   $$
-  \lvert\int_{C_2}f(z)dz\rvert\leq\int^{2\pi/3}_0\lvert\frac{Rie^{i\theta}}{R^3e^{3 i\theta}+1}d\theta\\\\
-  \leq\int^{2\pi/3}_0\frac{R}{R^3-1}d\theta\\\\
-  =\frac{R}{R^3-1}\frac{2\pi}{3}
+    \left\lvert\int_{C_2}f(z)dz\right\rvert\leq\int^{2\pi/3}_0\left\lvert\frac{Rie^{i\theta}}{R^3e^{3 i\theta}+1}\right\rvert d\theta
+    \leq\int^{2\pi/3}_0\frac{R}{R^3-1}d\theta
+    =\frac{R}{R^3-1}\frac{2\pi}{3}
   $$
-  であり、\\(R\to\infty\\)で\\(0\\)に収束する。
+  であり、これは\\(R\to\infty\\)で\\(0\\)に収束する。
 
-  \\(R\to\infty\\)とすることで、
+  以上をまとめると、
   $$
-  (1-e^{2\pi i/3})I=\frac{2\pi i}{3e^{2\pi i/3}}\\\\
-  I=\frac{2\pi i}{3}e^{-2\pi i/3}(1-e^{2\pi i/3})^{-1}\\\\
-  =\frac{2\pi i}{3}(e^{2\pi i/3}-e^{4\pi i/3})^{-1}\\\\
-  =\frac{2\pi}{3\sqrt{3}}
+    \frac{2\pi i}{3e^{2\pi i/3}} = (1-e^{2\pi i/3})\int^R_0\frac{1}{x^3+1}dx+\int_{C_2}\frac{1}{z^3+1}dz
+  $$
+  である。
+
+  この式で\\(R\to\infty\\)とすることで、
+  $$
+    \frac{2\pi i}{3e^{2\pi i/3}} = (1-e^{2\pi i/3})\int^\infty_0\frac{1}{x^3+1}dx
+  $$
+  となり、
+  $$
+    \int^\infty_0\frac{1}{x^3+1}dx=\frac{2\pi i}{3}e^{-2\pi i/3}(1-e^{2\pi i/3})^{-1}
+    =\frac{2\pi}{3\sqrt{3}}
   $$
   となる。
+{{< /hint >}}
+
+{{< hint >}}
+  自然数\\(n\\)に対し
+  $$
+    \int^\infty_0\frac{1}{x^n+1}dx=\frac{\pi}{n\sin(\pi/n)}
+  $$
+  を示す。
 {{< /hint >}}
 
 ## フーリエ変換の計算例
@@ -151,43 +189,68 @@ $$
 {{< hint >}}
   \\(\xi>0\\)とし、
   $$
-  \int^\infty_{-\infty}\frac{e^{i\xi x}}{x^2+1}dx
+    \int^\infty_{-\infty}\frac{e^{i\xi x}}{x^2+1}dx
   $$
   を計算する。
 
   積分経路として、\\(C=C_1+C_2\\)とし、\\(C_1\\)は実軸上\\(-R\\)から\\(R\\)まで、\\(C_2\\)を原点中心半径\\(R\\)の上半円周とする。
   \\(f(z)=\dfrac{e^{i\xi z}}{z^2+1}\\)は\\(C\\)の内部に\\(z=i\\)に\\(1\\)の極をもち、留数は
   $$
-  \lim_{z\to i}\frac{e^{i\xi x}}{z^2+1}(z-i)=\frac{e^{-\xi}}{2i}
+    \lim_{z\to i}\frac{e^{i\xi x}}{z^2+1}(z-i)=\frac{e^{-\xi}}{2i}
   $$
   である。
   よって、
   $$
-  \int_C\frac{e^{i\xi z}}{z^2+1}dz=\pi e^{-\xi}
+    \int_C\frac{e^{i\xi z}}{z^2+1}dz=\pi e^{-\xi}
   $$
   となる。
 
   $$
-  \int_{C_1}\frac{e^{i\xi z}}{z^2+1}dz=\int^R_{-R}\frac{e^{i\xi z}}{z^2+1}dz
+    \int_{C_1}\frac{e^{i\xi z}}{z^2+1}dz=\int^R_{-R}\frac{e^{i\xi z}}{z^2+1}dz
   $$
   であり、（収束を示した上では）\\(R\to\infty\\)とすることで、
   $$
-  \int^\infty_{-\infty}\frac{e^{i\xi x}}{x^2+1}dx
+    \int^\infty_{-\infty}\frac{e^{i\xi x}}{x^2+1}dx
   $$
   に収束する。
 
   $$
-  \lvert\int_{C_2}\frac{e^{i\xi z}}{z^2+1}dz\rvert\leq\int_0^\pi\lvert\dfrac{e^{i\xi Re^{i\theta}}}{R^2e^{2i\theta}+1}iRe^{i\theta}\rvert d\theta\\\\
-  \leq\int_0^\pi\dfrac{e^{-\xi R\sin\theta}}{R^2-1}Rd\theta
+    \left\lvert\int_{C_2}\frac{e^{i\xi z}}{z^2+1}dz\right\rvert
+    \leq\int_0^\pi\left\lvert\dfrac{e^{i\xi Re^{i\theta}}}{R^2e^{2i\theta}+1}iRe^{i\theta}\right\rvert d\theta
+    \leq\int_0^\pi\dfrac{e^{-\xi R\sin\theta}}{R^2-1}Rd\theta
   $$
   で、\\(R\\)が十分大きいとき\\(\xi>0\\)であることから、
   $$
-  \leq\int_0^\pi\dfrac{R}{R^2-1}d\theta=\dfrac{\pi R}{R^2-1}
+    \leq\int_0^\pi\dfrac{R}{R^2-1}d\theta=\dfrac{\pi R}{R^2-1}
   $$
   で、\\(R\to\infty\\)で\\(0\\)に収束する。
 {{< /hint >}}
 
 ## 半周の留数
+
+{{< hint >}}
+  \\(g\\)が正則であるとき、\\(H_r\\)を原点中心半径\\(r\\)の上半円に反時計まわりに向きをつけたものとすると、
+  $$
+  \lim_{r\to+0}\int_{H_r}\frac{g(z)}{z}dz=\pi ig(0)=\pi iRes_{z=0}\frac{g(z)}{z}
+  $$
+  となる。
+{{< /hint >}}
+
+{{< hint >}}
+  コーシーの積分公式と同様に証明できる。
+  $$
+  \int_{H_r}\frac{g(z)}{z}dz=\int_{H_r}\frac{g(0)}{z}dz+\int_{H_r}\frac{g(z)-g(0)}{z}dz\\\\
+  =g(0)\int_{H_r}\frac{1}{z}dz+\int_{H_r}\frac{g(z)-g(0)}{z}dz\\\\
+  =\pi ig(0)+\int_{H_r}\frac{g(z)-g(0)}{z}dz
+  $$
+  であり、
+  $$
+  \lvert\int_{H_r}\frac{g(z)-g(0)}{z}dz\rvert\leq(\lvert g'(0)\rvert+\epsilon)\pi r
+  $$
+  で、\\(r\to0\\)で\\(0\\)に収束する。
+{{< /hint >}}
+
+これを利用して、以下の積分を計算しよう。
 
 {{< hint >}}
   $$
@@ -241,29 +304,40 @@ $$
   となる。
 {{< /hint >}}
 
-{{< hint >}}
-  \\(g\\)が正則であるとき、\\(H_r\\)を原点中心半径\\(r\\)の上半円に反時計まわりに向きをつけたものとすると、
-  $$
-  \lim_{r\to+0}\int_{H_r}\frac{g(z)}{z}dz=\pi ig(0)=\pi iRes_{z=0}\frac{g(z)}{z}
-  $$
-  となる。
-{{< /hint >}}
-
-{{< hint >}}
-  コーシーの積分公式と同様に証明できる。
-  $$
-  \int_{H_r}\frac{g(z)}{z}dz=\int_{H_r}\frac{g(0)}{z}dz+\int_{H_r}\frac{g(z)-g(0)}{z}dz\\\\
-  =g(0)\int_{H_r}\frac{1}{z}dz+\int_{H_r}\frac{g(z)-g(0)}{z}dz\\\\
-  =\pi ig(0)+\int_{H_r}\frac{g(z)-g(0)}{z}dz
-  $$
-  であり、
-  $$
-  \lvert\int_{H_r}\frac{g(z)-g(0)}{z}dz\rvert\leq(\lvert g'(0)\rvert+\epsilon)\pi r
-  $$
-  で、\\(r\to0\\)で\\(0\\)に収束する。
-{{< /hint >}}
 
 ## 多価関数を含む定積分
+
+複素数\\(s\\)に対し、\\(z^s\\)を単位円周で積分することを考えよう。
+全体で一価正則には定義できないので、\\(z=1\\)を除いた広義積分と解釈してもよいし、半円に分けてそれぞれの積分の和と考えてもよい。
+\\(z\\)の偏角を\\(0\leq \arg z\leq 2\pi\\)ととることにする。
+単位円周のパラメータづけを\\(\gamma(t)=\exp(2\pi it)\\)とすると、
+$$
+  z^s=\gamma(t)^s=\exp(s\log\gamma(t))=\exp(s2\pi t i)
+$$
+となる。
+よって、\\(s\neq 1\\)のとき、
+$$
+  \int_Cz^sdz = \int_0^1\exp(2\pi tis)2\pi i\exp(2\pi it)dt \\\\
+  = 2\pi i\left[\frac{1}{2\pi i(s+1)}\exp(2\pi i(s+1)t)\right]^1_0
+  = 2\pi i(\exp(2\pi i(s+1))-1)
+$$
+となる。\\(s\\)が整数ならこれは\\(0\\)だが、そうでない場合には\\(0\\)とならない。
+
+円周の半径を\\(r\\)として同様の計算を行う。
+円周\\(C_r\\)のパラメータづけを\\(\gamma(t)=r\exp(2\pi it)\\)とすると、
+$$
+  z^s=\gamma(t)^s=\exp(s\log\gamma(t))=\exp(s(r+2\pi t i))=\exp(rs)\exp(2\pi ist)
+$$
+となる。
+よって、\\(s\neq 1\\)のとき、
+$$
+  \int_Cz^sdz = \int_0^1\exp(2\pi tis)2\pi i\exp(2\pi it)dt \\\\
+  = 2\pi i\left[\frac{1}{2\pi i(s+1)}\exp(2\pi i(s+1)t)\right]^1_0
+  = 2\pi i(\exp(2\pi i(s+1))-1)
+$$
+となる。こちらもやはり\\(s\\)が整数ならこれは\\(0\\)だが、そうでない場合には\\(0\\)とならない。
+また、\\(r\\)に依存することにも注意しよう。
+\\(z^s\\)が一価正則な原始関数を持つならば線積分の値は\\(r\\)には依存しない。
 
 留数定理による積分計算の例題を見てみよう。
 ここでは特に関数の多価性を利用する例を紹介する。  
@@ -289,6 +363,7 @@ $$
 さて、積分経路\\(C\\)を次の四つの曲線を繋いでできるものとする。
 \\(C_1\\)を実軸の\\(0&lt;\epsilon\\)から\\(R\\)まで。
 パラメータづけを\\(z=x, x\in[\epsilon,R]\\)で与える。
+\\(z^{s-1}\\)はha\\(\arg z=0\\)で考える。
 ここでの積分は
 $$
     \int_{C_1}f(z)dz=
@@ -301,8 +376,21 @@ $$
 に収束する。
 
 \\(C_2\\)を半径\\(R\\)の円を偏角\\(0\\)から\\(2\pi\\)での円周とする。
-パラメータづけを\\(z=R\exp(2\pi it)\\)とする。
-ここでの積分は
+
+パラメータづけを\\(\gamma(t)=R\exp(2\pi it)\\)とすると、
+\\(\gamma\'(t)=R2\pi i\exp(2\pi it)\\)であり、\\(\lvert\gamma\'(t)\rvert=2\pi R\\)である。
+
+また、
+$$
+  \gamma(t)^{s-1}=\exp((s-1)\log(R\exp(2\pi it)))=\exp((s-1)(\log R+ 2\pi it))
+$$
+であり、
+$$
+  \lvert\gamma(t)^{s-1}\rvert=\exp(Re((s-1)(\log R+ 2\pi it)))=\exp((Re(s)-1)\log R - Im(s)2\pi t)
+$$
+である。
+
+積分の絶対値は
 $$
     \int_{C_2}f(z)dz
     =
@@ -311,14 +399,14 @@ $$
 となる。
 これの絶対値は
 $$
-    \lvert \int_{C_2 \rvert f(z)dz}
+    \left\lvert \int_{C_2} f(z)dz\right\rvert 
     \leq
-    2\pi R^{s-1}\int_0^1\frac{1}{\lvert \exp(2\pi it)+1/R \rvert}dt
+    2\pi R\int_0^1\left\lvert\frac{\gamma(t)^{s-1}}{\gamma(t)+1}\right\rvert dt
 $$
 となり、これは\\(s\\)の実部が\\(1\\)より小さいから\\(R\to\infty\\)で\\(0\\)に収束する。
 
 \\(C_3\\)を実軸の\\(R\\)から\\(\epsilon\\)までの線分とする。
-ここでは\\(z=\exp(2\pi i)x\\)となることに注意すると、積分は
+ここでは\\(\arg z=2\pi\\)となることに注意すると、積分は
 $$
     \int_{C_3}f(z)dz
     =
