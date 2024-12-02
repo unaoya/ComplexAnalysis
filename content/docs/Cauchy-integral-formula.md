@@ -114,67 +114,8 @@ weight: 6
 コーシーの積分公式を用いることで、正則関数の非常に重要な性質である解析性、
 つまり何回でも微分できまた冪級数展開可能であるという性質を導くことができる。
 
-\\(\phi(\zeta)\\)は曲線\\(C\\)上で連続であるとする。
-$$
-  F_1(z)=\int_C\frac{\phi(\zeta)}{\zeta-z}d\zeta
-$$
-は\\(z\\)について\\(C\\)の補集合で連続である。
-このことをまず確かめよう。
-
-\\(z=z_{0}\\)での連続性を議論するため、\\(\delta\\)を\\(\lvert z-z_{0} \rvert&lt;\delta\\)が\\(C\\)と交わらないよう十分小さくとる。
-さらに\\(z\\)を\\(\lvert z-z_{0} \rvert<\dfrac{\delta}{2}\\)となるよう取ると、
-任意の\\(\zeta\in C\\)に対し\\(\lvert \zeta-z \rvert>\dfrac{\delta}{2}\\)である。
-
-したがって
-$$
-  F_1(z)-F_1(z_{0})=
-  \int_C\phi(\zeta)(\frac{1}{\zeta-z}-\frac{1}{\zeta-z_{0}})d\zeta\\\\
-  =(z-z_{0})\int_C\frac{\phi(\zeta)}{(\zeta-z)(\zeta-z_{0})}d\zeta
-$$
-となる。
-
-これの絶対値を評価すると
-$$
-  \lvert F_1(z)-F_1(z_{0}) \rvert\leq
-  \lvert z-z_{0} \rvert\int_C\frac{\lvert \phi(\zeta) \rvert}{\lvert \zeta-z \rvert\lvert \zeta-z_{0} \rvert}\lvert d\zeta \rvert\leq
-  \lvert z-z_{0} \rvert\frac{\delta^2}{2}\int_C\lvert \phi(\zeta) \rvert\lvert d\zeta \rvert
-$$
-となる。
-この積分は\\(z, z_{0}\\)によらない量であるから、上の不等式から\\(F_1\\)の連続性が示される。
-
-次に、\\(\phi(\zeta)\\)の代わりに\\(\dfrac{\phi(\zeta)}{\zeta-z_{0}}\\)に対して同様の積分を考えると
-$$
-  F_2(z)=\int_C\frac{\phi(\zeta)}{(\zeta-z_{0})(\zeta-z)}d\zeta
-$$
-も連続である。
-つまり、
-$$
-  \lim_{z\to z_{0}}\int_C\frac{\phi(\zeta)}{(\zeta-z_{0})(\zeta-z)}d\zeta=F_2(z_{0})
-$$
-となる。
-一方で、この積分は上で見たように
-$$
-  \frac{F_1(z)-F_1(z_{0})}{z-z_{0}}=\int_C\frac{\phi(\zeta)}{(\zeta-z)(\zeta-z_{0})}d\zeta
-$$
-となるから、この左辺の極限は存在し\\(F_2(z_{0})\\)となる。
-この左辺の極限は微分係数の定義で、以上から\\(F_1\'(z_{0})=F_2(z_{0})\\)、すなわち
-$$
-  f\'(z)=\frac{1}{2\pi i}\int_C\frac{f(\zeta)}{(\zeta-z)^2}d\zeta
-$$
-が導かれる。
-
-同様に帰納的な議論で
-$$
-  F_n(z)=\int_C\frac{\phi(\zeta)}{\zeta-z}d\zeta
-$$
-とおくと、これは連続で、
-$$
-  F_n\'(z)=nF_{n+1}(z)
-$$
-を満たす。
-
 {{< hint >}}
-  領域\\(D\\)で正則な関数\\(f\\)に対し、\\(f\\)の\\(n\\)階導関数は
+  領域\\(D\\)で正則な関数\\(f\\)は任意の自然数\\(n\\)に対して\\(n\\)階微分可能で、\\(f\\)の\\(n\\)階導関数は
   $$
     f^{(n)}(z)=\frac{n!}{2\pi i}\int_C\frac{f(\zeta)}{(\zeta-z)^{n+1}}d\zeta
   $$
@@ -185,48 +126,66 @@ $$
 さらに正則関数はテイラー展開できることもわかる。
 
 {{< hint >}}
-  \\(D, C\\)に適当な条件をつける。
-  \\(f\\)は正則とする。このとき、\\(f\\)は任意の\\(n\\)階微分可能で
+  領域\\(D\\)で正則な関数\\(f\\)は\\(a\in D\\)の周りで冪級数展開可能である。
+  つまり、ある\\(a\\)の周りで収束する冪級数が存在して、\\(a\\)の近傍の\\(z\\)に対して
   $$
-    f^{(n)}(a)=\frac{n!}{2\pi i}\int_C\frac{f(z)}{(z-a)^{n+1}}dz
+    f(z) = \sum_{n=0}^\infty a_nz^n
   $$
   となる。
 {{< /hint >}}
 
-{{< hint >}}
-  \\(n\\)についての数学的帰納法。
-  \\(n=0\\)の場合はコーシーの積分公式である。
+コーシーの積分公式を用いて\\(f\\)の冪級数展開を計算する。
+\\(a\in D\\)とし、\\(a\\)を中心とする半径の小さな円周\\(C\\)と\\(C\\)の内部の点\\(z\\)に対し
+$$
+  f(z)=\frac{1}{2\pi i}\int_C\frac{f(\zeta)}{\zeta-z}d\zeta
+$$
+である。
 
-  \\(n\\)で成立すると仮定して、\\(n+1\\)で示す。
-  つまり、\\(f\\)は\\(n\\)階微分可能であり、
-  $$
-    f^{(n)}(a)=\frac{n!}{2\pi i}\int_C\frac{f(z)}{(z-a)^{n+1}}dz
-  $$
-  が成り立つとする。
-  この仮定の下で\\(f^{(n)}\\)が微分可能であること、そしてその微分係数を計算する。
-  $$
-    \frac{f^{n}(a+h)-f^{(n)}(a)}{h}=\frac{n!}{2\pi i}\int_C\frac{1}{h}(\frac{1}{(z-(a+h))^{n+1}}-\frac{1}{(z-a)^{n+1}})f(z)dz
-  $$
-  となる。
-  ここで、\\(A^{n+1}-B^{n+1}=(A-B)(A^n+A^{n-1}B+\cdots+AB^{n-1}+B^n)\\)であることを用いると、
-  \\(A=\dfrac{1}{z-(a+h)}, B=\dfrac{1}{z-a}\\)のとき、\\(A-B=\dfrac{h}{(z-a)(z-(a+h))}\\)なので、
-  $$
-    \frac{1}{h}(\frac{1}{(z-(a+h))^{n+1}}-\frac{1}{(z-a)^{n+1}})=\frac{1}{(z-a)(z-(a+h))}(\frac{1}{(z-(a+h))^n}+\cdots+\frac{1}{(z-a)^n})
-  $$
-  となる。
-  ここで、\\(h\to0\\)とすると、
-  $$
-    \frac{1}{(z-a)(z-(a+h))}(\frac{1}{(z-(a+h))^n}+\cdots+\frac{1}{(z-a)^n})\to\frac{n+1}{(z-a)^{n+2}}
-  $$
-  となる。
-  よって、積分と極限の順序交換をして、
-  $$
-    \lim_{h\to0}\frac{f^{n}(a+h)-f^{(n)}(a)}{h}=\frac{n!}{2\pi i}\int_C\frac{n+1}{(z-a)^{n+2}}f(z)dz\\\\
-    =\frac{(n+1)!}{d2\pi i}\int_C\frac{f(z)}{(z-a)^{n+2}}dz
-  $$
-  となる。
-  これが証明したいことであった。
-{{< /hint >}}
+まずは被積分関数\\(\dfrac{1}{\zeta-z}\\)の\\(z=a\\)を中心とする冪級数展開を計算する。
+その上で、無限和と積分の順序が交換できることを用いれば、\\(f\\)の冪級数展開を求めることができる。
+
+$$
+\frac{1}{\zeta-z}
+=\frac{1}{(\zeta-a)-(z-a)}
+=\frac{1}{(\zeta-a)(1-(z-a/(\zeta-a)))}
+=\frac{1}{\zeta-a}\times\frac{1}{1-(z-a/(\zeta-a))}
+$$
+となる。
+
+ここで、等比級数の和の公式を用いると、
+\\(\left\lvert\dfrac{z-a}{\zeta-a}\right\rvert&lt;1\\)が成り立つため、
+$$
+\frac{1}{1-((z-a)/(\zeta-a))}
+=\left(1+\frac{z-a}{\zeta-a}+\left(\frac{z-a}{\zeta-a}\right)^2+\cdots\right)
+=\sum_{n=0}^\infty\frac{(z-a)^n}{(\zeta-a)^{n}}
+$$
+となる。
+
+よって、
+$$
+\frac{1}{\zeta-z}=\sum_{n=0}^\infty\frac{(z-a)^n}{(\zeta-a)^{n+1}}
+$$
+である。
+
+$$
+  f(z)=\frac{1}{2\pi i}\int_C\frac{f(\zeta)}{\zeta-z}d\zeta=\frac{1}{2\pi i}\int_C\sum_{n=0}^\infty\frac{f(\zeta)}{(\zeta-a)^{n+1}}(z-a)^nd\zeta
+$$
+
+一様収束すれば順序交換できる。
+$$
+  \frac{1}{2\pi i}\int_C\sum_{n=0}^\infty\frac{f(\zeta)}{(\zeta-a)^{n+1}}(z-a)^nd\zeta
+  =\frac{1}{2\pi i}\sum_{n=0}^\infty\left(\int_C\frac{f(\zeta)}{(\zeta-a)^{n+1}}d\zeta\right)(z-a)^n
+$$
+
+よって、
+$$
+  f(z)
+  =\frac{1}{2\pi i}\sum_{n=0}^\infty\left(\int_C\frac{f(\zeta)}{(\zeta-a)^{n+1}}d\zeta\right)(z-a)^n
+$$
+である。
+
+冪級数展開できる関数は何回でも微分可能であり、その微分係数も冪級数の係数から計算できる。
+
 
 {{< hint >}}
   $$
