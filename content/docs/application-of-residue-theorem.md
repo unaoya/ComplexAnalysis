@@ -23,16 +23,15 @@ $$
 
 単位円周\\(\lvert z \rvert=1\\)正の向き\\(C\\)での線積分を\\(\gamma(\theta)=e^{i\theta}\\)とパラメータづけすることで、
 \\(\theta\\)の\\(0\leq\theta\leq2\pi\\)での積分に書き換えることができる。
-この結果が上の積分になるように整理する。
+この書き換えの逆によって、数直線上の積分を単位円周での線積分に書き換えることにより、留数定理を用いて積分が計算できる。
 $$
 \cos\theta=\frac{z+z^{-1}}{2}, \sin\theta=\frac{z-z^{-1}}{2i}, dz=ie^{i\theta}d\theta=izd\theta
 $$
 となるので、
 $$
-\int^{2\pi}_0F(\cos\theta, \sin\theta)d\theta=\int_CF\left(\frac{z+z^{-1}}{2}, \frac{z-z^{-1}}{2}\right)\frac{dz}{iz}
+\int^{2\pi}_0F(\cos\theta, \sin\theta)d\theta=\int_CF\left(\frac{z+z^{-1}}{2}, \frac{z-z^{-1}}{2i}\right)\frac{dz}{iz}
 $$
-となる。
-
+である。
 この単位円周での線積分を留数定理を用いて計算する。
 
 いくつか例題を見てみよう。
@@ -42,26 +41,26 @@ $$
   $$
   を計算する。
 
-  まず上の通り線積分を解釈すると
+  まず上の通り単位円周での線積分に書き換えると、
   $$
-    \int^{2\pi}_0\frac{d\theta}{3+\sin\theta}=\int_C\frac{1}{3+(z-z^{-1})/2}\frac{dz}{iz}
-    =\int_C\frac{2}{6z+z^2-1}\frac{1}{i}dz
-    =\frac{2}{i}\int_C\frac{dz}{6z+z^2-1}
+    \int^{2\pi}_0\frac{d\theta}{3+\sin\theta}=\int_C\frac{1}{3+(z-z^{-1})/2i}\frac{dz}{iz}
+    =\int_C\frac{2}{6iz+z^2-1}dz
+    =2\int_C\frac{dz}{6iz+z^2-1}
   $$
   となる。
 
-  ここで、\\(\dfrac{1}{6z+z^2-1}\\)の正則でない孤立特異点は\\(z=-3\pm\sqrt{10}\\)であり、これらはいずれも\\(1\\)位の極である。
-  このうち\\(\lvert z\rvert&lt;1\\)なのは、\\(z=-3+\sqrt{10}\\)のみである。
+  ここで、\\(\dfrac{1}{6iz+z^2-1}\\)の正則でない孤立特異点は、\\(z^2+6iz-1=0)\\の解\\(z=-3i\pm2\sqrt{2}i\\)であり、これらはいずれも\\(1\\)位の極である。
+  このうち\\(\lvert z\rvert&lt;1\\)なのは、\\(z=-3i+2\sqrt{2}i\\)のみである。
 
-  \\(z=-3+\sqrt{10}\\)での留数は、
+  \\(z=-3i+2\sqrt{2}i\\)での留数は、
   $$
-    \frac{1}{(z-(-3+\sqrt{10}))(z-(-3-\sqrt{10}))}(z-(-3+\sqrt{10}))\to\frac{1}{2\sqrt{10}}
+    \lim_{z\to-3i+2\sqrt{2}i}\frac{1}{(z-(-3i+2\sqrt{2}i))(z-(-3i-2\sqrt{2}i))}(z-(-3i+2\sqrt{2}i))=\frac{1}{4\sqrt{2}i}
   $$
   である。
   
   よって、留数定理により
   $$
-    \frac{2}{i}\int_C\frac{dz}{6z+z^2-1} = \frac{2}{i}\frac{2\pi i}{2\sqrt{10}} = \frac{2\pi}{\sqrt{10}}
+    2\int_C\frac{dz}{6iz+z^2-1} = \frac{4\pi i}{4\sqrt{2}i} = \frac{\pi}{\sqrt{2}}
   $$
   となる。
 {{< /hint >}}
@@ -80,41 +79,58 @@ $$
   $$
   を示す。
 
-  \\(R>0\\)に対して、\\(H_R\\)を原点中心半径\\(R\\)の上半円の正の向き、\\(I_R\\)を閉区間\\([-R, R]\\)負から正への向きとし、\\(C_R=H_R+I_R\\)で留数定理を用いて
+  実数\\(R>0\\)に対して、\\(A_R\\)を原点中心半径\\(R\\)の上半円の正の向き、\\(I_R\\)を閉区間\\([-R, R]\\)負から正への向きとする。
+  十分大きな\\(R)\\に対する閉曲線\\(C_R=H_R+I_R\\)での線積分
   $$
     \int_{C_R}\frac{1}{1+z^4}dz
   $$
-  を計算する。
+  を留数定理を用いて計算する。
 
-  \\(f(z)=\dfrac{1}{1+z^4}\\)は\\(z=e^{\pi i/4}, e^{3\pi i/4}, e^{5\pi i/4}, e^{7\pi i/4}\\)でそれぞれ\\(1\\)の極を持つ。
-  \\(C_R\\)の内部にあるのは\\(z=e^{\pi i/4}, e^{3\pi i/4}\\)の二つ。
-  これらでの留数を求める。
+  \\(f(z)=\dfrac{1}{1+z^4}\\)は\\(1+z^4=0)\\の解\\(z=e^{\pi i/4}, e^{3\pi i/4}, e^{5\pi i/4}, e^{7\pi i/4}\\)でそれぞれ\\(1\\)の極を持つ。
+  これらのうち\\(C_R\\)の内部にあるのは\\(z=e^{\pi i/4}, e^{3\pi i/4}\\)の二つである。
+  それぞれにおける\\(f)\\の留数を求めよう。
   ロピタルの定理を使って計算すると、
   $$
     \lim_{z\to e^{\pi i/4}}\frac{z-e^{\pi i/4}}{1+z^4}=\frac{1}{4e^{3\pi i/4}}\\\\
     \lim_{z\to e^{3\pi i/4}}\frac{z-e^{3\pi i/4}}{1+z^4}=\frac{1}{4e^{\pi i/4}}
   $$
   である。
-  よって、
+  よって、留数定理により
   $$
     \int_{C_R}\frac{1}{1+z^4}dz=2\pi i\left(\frac{e^{-3\pi i/4}+e^{-\pi i/4}}{4}\right)=\frac{\pi i}{2}(-2i\frac{1}{\sqrt{2}})=\frac{\pi}{\sqrt{2}}
   $$
   となる。
   これは\\(R\\)には依存しない。
 
-  また、\\(I_R\\)を\\(\gamma(t)=t\\)でパラメータづけると
+  次に、\\(I_R\\)における線積分を計算する。
+  \\(I_R)\\を\\(\gamma(t)=t\\)でパラメータづけると
   $$
     \int_{I_R}\frac{1}{1+z^4}dz=\int^R_{-R}\frac{1}{1+t^4}dt
   $$
-  であり、これの\\(R\to\infty\\)の極限が（広義積分の存在は別に証明が必要だが、）求める積分である。
+  である。
+  これの\\(R\to\infty\\)の極限が（広義積分の存在は別に証明が必要だが、）求める積分である。
 
-  \\(\lvert z\rvert=R\\)のとき、\\(R\\)が十分大きければ三角不等式より\\(R^4-1\leq \lvert1+z^4\rvert\leq R^4+1\\)となるので、
+  最後に\\(A_R)\\における線積分を計算する。
+  実際には、これが\\(R\to\infty)\\で\\(0)\\に収束することを証明する。
+  そのため、絶対値を評価する。
+  まず積分の三角不等式により
   $$
-    \left\lvert\int_{H_R}\frac{1}{1+z^4}dz\right\rvert
+    \left\lvert\int_{A_R}\frac{1}{1+z^4}dz\right\rvert
     \leq\int_{H_R}\left\lvert\frac{1}{1+z^4}\right\rvert\lvert dz\rvert
+  $$
+  である。
+  ここでさらに\\(\lvert z\rvert=R\\)のとき、\\(R\\)が十分大きければ、三角不等式より\\(R^4-1\leq \lvert1+z^4\rvert\\)となる。
+  よって、
+  $$
+    \int_{H_R}\left\lvert\frac{1}{1+z^4}\right\rvert\lvert dz\rvert
     \leq\int_{H_R}\frac{1}{R^4-1}\lvert dz\rvert=\frac{\pi R}{R^4-1}
   $$
-  となり、\\(R\to\infty\\)で\\(0\\)に収束する。
+  となる。
+  これは\\(R\to\infty\\)で\\(0\\)に収束するので、
+  $$
+    \lim_{R\to\infty}\int_{A_R}\frac{1}{1+z^4}dz=0
+  $$
+  である。
 
   以上より
   $$
@@ -134,33 +150,52 @@ $$
   を示す。
 
   \\(f(z)=\dfrac{1}{z^3+1}\\)とおく。
-  積分経路\\(C=C_1+C_2+C_3\\)を\\(C_1:z=x, 0\leq x\leq R, C_2:z=Re^{i\theta}, 0\leq\theta\leq\dfrac{2\pi}{3}, C_3:z=Re^{2\pi i/3}x\\)と定める。
-  \\(C\\)内にある\\(f\\)の極は\\(z=e^{\pi i/3}\\)で留数は、ロピタルの定理を用いて
+  \\(R)\\を正の実数とし、\\(I_R)\\を実軸の\\(0)\\から\\(R)\\に向かう線分、\\(A_R)\\を半径\\(R)\\の円弧のうち偏角が\\(0)\\から\\(\dfrac{2\pi}{3})\\の部分、
+  \\(J_R)\\を\\(z=R\exp(\frac{2\pi}{3}i))\\から\\(z=0)\\を結ぶ線分とし、\\(C_R=I_R+A_R+J_R)\\とする。
+
+  \\(C_R\\)内部にある\\(f\\)の極は\\(z^3+1=0)\\の解のうち\\(z=e^{\pi i/3}\\)のみである。
+  ここでの\\(f)\\の留数は、ロピタルの定理を用いて
   $$
     \lim_{z\to e^{\pi i/3}}\frac{z-e^{\pi i/3}}{z^3+1}=\frac{1}{3e^{2\pi i/3}}
   $$
+  と計算できる。
+  よって、留数定理により
+  $$
+    \int_{C_R}f(z)dz=2\pi i\frac{1}{3e^{2\pi i/3}}
+  $$
   である。
 
-  それぞれの積分は
+  この左辺の積分を三つの曲線に分けて計算する。
+
+  まず\\(I_R)\\での積分は
   $$
-    \int_{C_1}f(z)dz=\int^R_0\frac{1}{x^3+1}dx
+    \int_{I_R}f(z)dz=\int^R_0\frac{1}{x^3+1}dx
   $$
   であり、\\(R\to\infty\\)としたものが求めるべき積分である。
+
+  次に\\(J_R)\\での積分は
   また、
   $$
-    \int_{C_3}f(z)dz=-\int^R_0\frac{1}{x^3+1}e^{2\pi i/3}dx=-e^{2\pi i/3}\int^R_0\frac{1}{x^3+1}dx
+    \int_{J_R}f(z)dz=\int^0_R\frac{1}{(x\exp(\frac{2\pi}{3}i))^3+1}e^{2\pi i/3}dx=-e^{2\pi i/3}\int^R_0\frac{1}{x^3+1}dx
   $$
   である。
+
+  最後に\\(A_R)\\での積分は、、三角不等式を用いると、
   $$
-    \left\lvert\int_{C_2}f(z)dz\right\rvert\leq\int^{2\pi/3}_0\left\lvert\frac{Rie^{i\theta}}{R^3e^{3 i\theta}+1}\right\rvert d\theta
+    \left\lvert\int_{A_R}f(z)dz\right\rvert\leq\int^{2\pi/3}_0\left\lvert\frac{Rie^{i\theta}}{R^3e^{3 i\theta}+1}\right\rvert d\theta
     \leq\int^{2\pi/3}_0\frac{R}{R^3-1}d\theta
     =\frac{R}{R^3-1}\frac{2\pi}{3}
   $$
-  であり、これは\\(R\to\infty\\)で\\(0\\)に収束する。
+  となる。
+  これは\\(R\to\infty\\)で\\(0\\)に収束するため、
+  $$
+    \lim_{R\to\infty}\int_{A_R}f(z)dz=0
+  $$
+  である。
 
   以上をまとめると、
   $$
-    \frac{2\pi i}{3e^{2\pi i/3}} = (1-e^{2\pi i/3})\int^R_0\frac{1}{x^3+1}dx+\int_{C_2}\frac{1}{z^3+1}dz
+    \frac{2\pi i}{3e^{2\pi i/3}} = (1-e^{2\pi i/3})\int^R_0\frac{1}{x^3+1}dx+\int_{A_R}\frac{1}{z^3+1}dz
   $$
   である。
 
@@ -168,7 +203,8 @@ $$
   $$
     \frac{2\pi i}{3e^{2\pi i/3}} = (1-e^{2\pi i/3})\int^\infty_0\frac{1}{x^3+1}dx
   $$
-  となり、
+  となる。
+  よって、
   $$
     \int^\infty_0\frac{1}{x^3+1}dx=\frac{2\pi i}{3}e^{-2\pi i/3}(1-e^{2\pi i/3})^{-1}
     =\frac{2\pi}{3\sqrt{3}}
